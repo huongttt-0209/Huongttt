@@ -1,0 +1,40 @@
+reading_id,patient_id,date,time,systolic,diastolic,pulse,note,scenario
+BP001,P01,2026-02-03,07:30,125,82,72,Sáng,Happy path
+BP002,P01,2026-02-03,19:00,132,85,75,Tối,Happy path
+BP003,P01,2026-02-02,08:00,128,80,70,,Happy path
+BP004,P01,2026-02-01,07:45,130,84,73,,Happy path
+BP005,P01,2026-01-31,08:15,127,79,71,,Happy path
+BP006,P01,2026-01-30,07:30,135,88,76,Sau tập thể dục,Happy path
+BP007,P01,2026-01-29,20:00,122,78,68,,Happy path
+BP008,P01,2026-01-28,08:00,126,81,72,,Happy path
+BP009,P01,2026-01-25,09:00,129,83,74,,Month data
+BP010,P01,2026-01-20,08:30,131,82,73,,Month data
+BP011,P01,2026-01-15,07:45,128,80,71,,Month data
+BP012,P01,2026-01-10,08:00,133,86,75,,Month data
+BP013,P01,2026-01-05,07:00,130,84,74,,Month data
+BP020,P02,2026-01-20,09:00,140,90,78,,Only month - fallback
+BP021,P02,2026-01-15,08:30,138,88,76,,Only month - fallback
+BP022,P02,2026-01-10,07:45,142,92,80,,Only month - fallback
+BP023,P02,2026-01-05,08:00,145,94,82,Cao,Only month - fallback
+BP040,P04,2026-02-03,06:00,130,85,70,Sáng sớm,Multi-reading average
+BP041,P04,2026-02-03,12:00,142,90,78,Sau ăn trưa,Multi-reading average
+BP042,P04,2026-02-03,18:00,128,82,72,Chiều,Multi-reading average
+BP043,P04,2026-02-03,21:00,125,80,68,Tối,Multi-reading average
+BP044,P04,2026-02-02,07:00,132,84,74,,Multi-reading average
+BP045,P04,2026-02-02,19:00,138,88,76,,Multi-reading average
+BP046,P04,2026-02-01,08:00,135,86,75,,Multi-reading average
+BP047,P04,2026-01-31,07:30,129,82,71,,Multi-reading average
+BP048,P04,2026-01-30,08:00,133,84,73,,Multi-reading average
+BP050,P05,2026-02-03,08:00,128,82,72,,New user 3 days
+BP051,P05,2026-02-02,07:30,130,84,74,,New user 3 days
+BP052,P05,2026-02-01,08:00,127,80,70,,New user 3 days
+BP060,P06,2026-02-03,07:00,126,81,71,,Has 10 unread reports
+BP061,P06,2026-02-02,08:00,129,83,73,,Has 10 unread reports
+BP062,P06,2026-02-01,07:30,131,85,75,,Has 10 unread reports
+BP063,P06,2026-01-31,08:00,128,82,72,,Has 10 unread reports
+BP064,P06,2026-01-30,07:45,130,84,74,,Has 10 unread reports
+BP065,P06,2026-01-29,08:00,127,80,70,,Has 10 unread reports
+BP066,P06,2026-01-28,07:30,132,86,76,,Has 10 unread reports
+BP070,P07,2026-01-28,08:00,128,82,72,,Week boundary - exactly 7th day
+BP071,P07,2026-01-27,07:30,130,84,74,,Week boundary - 6th day
+BP072,P07,2026-02-01,09:00,126,80,70,,First day of new week (should show in next week)

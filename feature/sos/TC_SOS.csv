@@ -1,0 +1,122 @@
+ID,Testcase name,Sub-case,Pre-condition,Step,Expected output,Priority,Section
+TC_001,Kích hoạt SOS từ Home,Happy Path,User đã login + đang ở màn hình chính,"1. Nhấn nút SOS (floating button góc phải dưới)","Hiển thị màn hình SOS Entry với header ""🚨 Bạn cần giúp đỡ?""",High,1. Kích hoạt SOS
+TC_002,Xác nhận gửi cảnh báo,Happy Path,Đang ở màn hình SOS Entry,"1. Nhấn ""🆘 KÍCH HOẠT SOS""","Chuyển sang màn hình SOS Main, Countdown 30 giây bắt đầu",High,1. Kích hoạt SOS
+TC_003,Quay lại từ SOS Entry,Cancel flow,Đang ở màn hình SOS Entry,"1. Nhấn ""← Quay lại""","Quay về màn hình chính, KHÔNG kích hoạt SOS",Medium,1. Kích hoạt SOS
+TC_004,Sound/Haptic 0-20s,Feedback,Countdown đang chạy (0-20s),1. Quan sát countdown,"Beep nhẹ mỗi 5 giây, Rung nhẹ mỗi 5 giây",Medium,1. Kích hoạt SOS
+TC_005,Sound/Haptic 20-25s,Feedback,Countdown đang chạy (20-25s),1. Quan sát countdown,"Beep mỗi 2 giây, Rung nhanh hơn",Medium,1. Kích hoạt SOS
+TC_006,Sound/Haptic 25-30s,Feedback,Countdown đang chạy (25-30s),1. Quan sát countdown,"Beep liên tục, Rung liên tục",Medium,1. Kích hoạt SOS
+TC_007,Countdown hoàn thành - Gửi ZNS,Happy Path,"Countdown = 0, có mạng, có người thân",1. Chờ countdown hết,"Gửi ZNS Template 1 đến TẤT CẢ người thân ĐỒNG THỜI + Alert CSKH + Chia sẻ GPS",High,1. Kích hoạt SOS
+TC_008,Chuyển Dashboard sau gửi,Navigation,ZNS đã gửi thành công,1. Quan sát màn hình,"Chuyển sang SOS Support Dashboard, hiển thị ""✅ Đã gửi cảnh báo thành công!""",High,1. Kích hoạt SOS
+TC_009,Hủy SOS trong countdown,Cancel flow,Countdown đang chạy,"1. Nhấn ""❌ HỦY""","Dừng countdown ngay, KHÔNG gửi ZNS/alert, quay về màn hình chính",High,2. Cancel SOS
+TC_010,Hủy SOS - Không cooldown,Cancel rule,Đã hủy SOS,1. Bấm SOS lại ngay,"Cho phép kích hoạt SOS bình thường, KHÔNG áp dụng cooldown",High,2. Cancel SOS
+TC_011,Gửi cảnh báo ngay (Skip countdown),NEW v2.1,Countdown đang chạy,"1. Nhấn ""🆘 GỬI CẢNH BÁO NGAY""","Dừng countdown ngay, Gửi ZNS đến TẤT CẢ người thân, Alert CSKH, Chia sẻ GPS, Chuyển sang Dashboard",High,1. Kích hoạt SOS
+TC_012,ZNS vẫn gửi khi đang gọi 115,Background,User đang gọi 115,1. Chờ countdown = 0,"ZNS được gửi tự động dù user đang trong cuộc gọi",High,3. Gọi 115
+TC_013,Toast khi quay lại app sau gọi 115,Notification,User kết thúc cuộc gọi 115 và quay lại app,1. Mở lại app Kolia,"Hiển thị toast ""✅ Đã gửi cảnh báo đến người thân""",Medium,3. Gọi 115
+TC_014,Escalation tự động bắt đầu,Happy Path,"SOS đã kích hoạt, user KHÔNG đang gọi 115",1. Quan sát sau countdown,Hệ thống gọi đến người thân #1,High,4. Escalation
+TC_015,Escalation timeout 20s,Timeout,Escalation đang gọi người thân #1,1. Người thân #1 không trả lời trong 20s,"Hệ thống gọi đến người thân #2, chờ 20s",High,4. Escalation
+TC_016,Escalation sau 5 contacts,Fallback,"Tất cả 5 người thân không trả lời",1. Đợi escalation hết,"Gửi alert đến CSKH, hiển thị prompt ""Gọi 115 ngay""",High,4. Escalation
+TC_017,Escalation dừng khi có người trả lời,Stop condition,Người thân #X trả lời (Call Connected ≥10s),1. Người thân bắt máy,"Dừng escalation ngay, KHÔNG gọi các người thân còn lại",High,4. Escalation
+TC_018,Call drop <10s không tính answered,KC6a,Người thân connect rồi drop trong 10s,1. Cuộc gọi kết nối 2. Disconnect sau 5s,"KHÔNG tính ""đã trả lời"", tiếp tục escalation đến người thân #X+1",High,4. Escalation
+TC_019,Call threshold 10s boundary,Boundary,Cuộc gọi connect đúng 10s,1. Cuộc gọi kết nối đúng 10s,"Tính là ""answered"", dừng escalation",Medium,4. Escalation
+TC_020,User đang gọi 115 - PAUSE escalation,KC7,User đang trong cuộc gọi 115,1. Escalation bắt đầu,"CHỈ gửi ZNS/Push (không auto-call), PAUSE escalation (không skip contacts)",High,4. Escalation
+TC_021,Resume escalation sau khi 115 kết thúc,KC7a,Escalation đã PAUSE do gọi 115,1. User kết thúc cuộc gọi 115,"Resume escalation từ contact #1 (không skip), tiếp tục flow 20s/contact",High,4. Escalation
+TC_022,Gọi người thân từ Dashboard,Happy Path,Đang ở SOS Support Dashboard,"1. Nhấn ""Gọi người thân""","Chuyển sang màn hình Contact List",Medium,5. Hỗ trợ sau SOS
+TC_023,Gọi điện thoại từ Contact List,Action,Đang ở Contact List,"1. Nhấn ""📞 Gọi điện"" cho người thân #X","Mở native phone app gọi SĐT, escalation skip người thân #X",High,5. Hỗ trợ sau SOS
+TC_024,Bệnh viện gần đây - Happy Path,Happy Path,"Đang ở Dashboard, GPS OK, có BV <10km","1. Nhấn ""Bệnh viện gần đây""","Mở Hospital Map với Google Maps, hiển thị markers BV",High,5. Hỗ trợ sau SOS
+TC_025,Tap marker bệnh viện,Interaction,Đang ở Hospital Map,1. Tap vào marker,"Hiển thị bottom sheet: Tên BV, Địa chỉ, Khoảng cách, Button ""📍 Chỉ đường""",Medium,5. Hỗ trợ sau SOS
+TC_026,Chỉ đường Google Maps,Navigation,Đang xem bottom sheet BV,"1. Nhấn ""📍 Chỉ đường""","Mở Google Maps navigation đến BV",Medium,5. Hỗ trợ sau SOS
+TC_027,Không có BV trong 10km,Empty state,Không có BV trong bán kính 10km,1. Tìm bệnh viện,"Hiển thị Empty State: ""Không tìm thấy bệnh viện gần bạn. Vui lòng gọi 115.""",Medium,5. Hỗ trợ sau SOS
+TC_028,Hospital Map - Lần đầu xin quyền Location,KC9a,Chưa từng yêu cầu quyền vị trí,"1. Nhấn ""Bệnh viện gần đây""","Hiển thị popup hệ điều hành xin cấp quyền Location",High,5. Hỗ trợ sau SOS
+TC_029,Hospital Map - Chấp nhận quyền,Permission,Popup OS xin quyền,1. User chấp nhận,"Tiếp tục flow bình thường, hiển thị Hospital Map",High,5. Hỗ trợ sau SOS
+TC_030,Hospital Map - Từ chối quyền lần đầu,Permission,Popup OS xin quyền,1. User từ chối,"Hiển thị popup hướng dẫn vào Settings",High,5. Hỗ trợ sau SOS
+TC_031,Hospital Map - Đã từ chối trước đó,KC9a Case 2,User đã từ chối quyền vị trí trước đó,"1. Nhấn ""Bệnh viện gần đây""","Hiển thị popup: 📍 Title=""Cho phép truy cập vị trí"", Button ""Đi đến cài đặt"" → Mở Settings, Button ""✕"" → Quay về Dashboard",High,5. Hỗ trợ sau SOS
+TC_032,Hướng dẫn sơ cứu,Happy Path,Đang ở Dashboard,"1. Nhấn ""Hướng dẫn sơ cứu""","Mở màn hình First Aid, hiển thị categories: Tim mạch (CPR), Đột quỵ (F.A.S.T), Hạ đường huyết, Té ngã",Medium,5. Hỗ trợ sau SOS
+TC_033,First Aid Disclaimer,Mandatory,Mở First Aid,1. Xem màn hình,"Hiển thị disclaimer: ""Thông tin sơ cứu chỉ mang tính tham khảo...""",High,5. Hỗ trợ sau SOS
+TC_034,First Aid chưa sync,Empty state,First Aid content chưa sync,1. Mở First Aid,"Hiển thị Empty State với illustration + text giải thích",Medium,5. Hỗ trợ sau SOS
+TC_035,SOS khi offline - Queue,Offline,Mất kết nối internet,1. Kích hoạt SOS,"Queue request với timestamp + location, hiển thị ""Đang chờ kết nối mạng..."" + button ""Gọi 115""",High,6. Offline/Error
+TC_036,SOS offline - Gọi 115 vẫn hoạt động,Offline,Mất internet nhưng sóng di động OK,1. Bấm Gọi 115,"Button hoạt động (không cần internet)",High,6. Offline/Error
+TC_037,SOS offline - Auto-send khi có mạng,Recovery,Đã queue SOS,1. Có mạng trở lại,"Auto-send cảnh báo đã queue, retry tối đa 3 lần mỗi 30 giây",High,6. Offline/Error
+TC_038,Offline detection simplified,v2.1 Update,Mất mạng (bất kỳ reason),1. Kích hoạt SOS,"Hiển thị ERR-01 ""Không có kết nối mạng"", Gọi 115/điện thoại VẪN hoạt động, ZNS queue",High,6. Offline/Error
+TC_039,Pin <10% - Countdown 10s,Low battery,Pin điện thoại <10%,1. Kích hoạt SOS,"Countdown rút ngắn xuống 10 giây (thay vì 30 giây)",High,7. Pin thấp
+TC_040,Pin <10% - ZNS sau 10s,Low battery,Pin <10% + countdown chạy,1. Chờ 10 giây,"ZNS được gửi sau 10 giây",High,7. Pin thấp
+TC_041,Pin 10% boundary,Boundary,Pin = 10%,1. Kích hoạt SOS,"Countdown bình thường 30 giây (10% KHÔNG trigger short countdown)",Medium,7. Pin thấp
+TC_042,Cooldown 30 phút,Limit,Đã gửi SOS thành công <30 phút,1. Tap SOS button,"Redirect thẳng về Dashboard, KHÔNG hiển thị modal, KHÔNG cho phép gửi SOS mới",High,8. Error Handling
+TC_043,Cooldown - Dashboard hiển thị timestamp,UI,Đang trong cooldown,1. Xem Dashboard,"Hiển thị ""Đã gửi cách đây {X} phút""",Medium,8. Error Handling
+TC_044,Cooldown - Vẫn gọi 115/người thân được,Exception,Đang trong cooldown,1. Bấm Gọi 115 hoặc Gọi người thân,"Vẫn hoạt động bình thường (không bị block)",Medium,8. Error Handling
+TC_045,ZNS fail - Retry 3 lần,Retry,ZNS API error,1. Countdown hoàn thành,"Retry tự động 3 lần, mỗi lần cách 10 giây",High,8. Error Handling
+TC_046,ZNS fail sau 3 retries - FAILURE state,Failure,ZNS vẫn fail sau 3 retries,1. Chờ retry hết,"Hiển thị FAILURE state: ⚠️ Icon, ""Không thể gửi cảnh báo"" (RED), Retry Button, Emergency actions",High,8. Error Handling
+TC_047,ZNS fail - Alert CSKH,Fallback,ZNS fail sau 3 retries,1. Kiểm tra backend,"Log error + Gửi alert đến CSKH cho manual follow-up",High,8. Error Handling
+TC_048,ZNS fail - User tap Retry,Action,FAILURE state hiển thị,"1. Nhấn ""🔄 Thử lại""","Retry gửi ZNS thêm 3 lần, hiển thị loading state",High,8. Error Handling
+TC_049,GPS timeout 10s - Last known ≤30p,Fallback,GPS không trả về trong 10s + Last known ≤30 phút,1. Gửi SOS,"Sử dụng last known location + warning ""Vị trí có thể không chính xác""",High,8. Error Handling
+TC_050,GPS timeout - Last known >30p,KC16,GPS fail + Last known >30 phút,1. Gửi SOS,"Treat như không có vị trí (không dùng location cũ >30p)",High,8. Error Handling
+TC_051,GPS timeout - Không có last known,Fallback,GPS fail + Không có last known,1. Gửi SOS,"Gửi ZNS không có link GPS + text ""Không xác định được vị trí""",High,8. Error Handling
+TC_052,Server timeout 5s,Fallback,Server không phản hồi trong 5s,1. Countdown hoàn thành,"Client fallback → Queue locally, retry mỗi 30 giây khi có mạng",High,8. Error Handling
+TC_053,SOS không có người thân,KC18,Chưa cài đặt người thân nào,1. Kích hoạt SOS,"Vẫn cho phép SOS, hiển thị warning: ""⚠️ Bạn chưa thêm người thân...""",High,8. Error Handling
+TC_054,SOS không contacts - Chỉ gửi CSKH,Fallback,Không có người thân,1. Countdown hoàn thành,"CHỈ gửi alert CSKH (không gửi ZNS), vẫn chia sẻ GPS",High,8. Error Handling
+TC_055,SOS không contacts - Dashboard,UI,Không có contacts + SOS đã gửi,1. Xem Dashboard,"Hiển thị ""Đã gửi đến bộ phận hỗ trợ"", Button ""Gọi người thân"" hiển thị badge ""Chưa có""",Medium,8. Error Handling
+TC_056,Tap Gọi người thân khi không có,Empty,Không có contacts,"1. Tap ""Gọi người thân""","Hiển thị Empty Contact Screen với CTA ""Thêm người thân""",Medium,8. Error Handling
+TC_057,Thêm contact trong SOS session,KC18a,SOS đã kích hoạt + đang ở Dashboard,"1. Thêm người thân mới qua CTA ""Thêm người thân""","Người thân mới KHÔNG nhận ZNS session hiện tại, Toast: ""Người thân đã thêm. Sẽ nhận thông báo trong lần SOS tiếp theo.""",High,8. Error Handling
+TC_058,ZNS Template 1 content,Template,SOS gửi thành công,1. Kiểm tra ZNS nhận được,"🚨 CẢNH BÁO KHẨN CẤP - KOLIA, có Tên, Thời gian, Link Maps, Hướng dẫn gọi",High,9. ZNS Templates
+TC_059,ZNS Template 2 - Escalation,Template,Escalation sau không ai trả lời,1. Kiểm tra ZNS,"🚨 KHẨN CẤP - KOLIA, ""Không ai trả lời"", Link Maps, GỌI NGAY",High,9. ZNS Templates
+TC_060,Error message - Offline,Message,Mất mạng,1. Xem message,"ERR-SOS-001: ""Không có kết nối mạng. Đang chờ kết nối...""",Medium,9. ZNS Templates
+TC_061,Error message - GPS disabled,Message,GPS tắt,1. Xem message,"ERR-SOS-003: ""Không thể lấy vị trí. Vui lòng bật GPS.""",Medium,9. ZNS Templates
+TC_062,Error message - First Aid not synced,Message,First Aid chưa sync,1. Mở First Aid,"ERR-SOS-005: ""Hướng dẫn sơ cứu đang được cập nhật...""",Medium,9. ZNS Templates
+TC_063,SOS Entry → Main transition <500ms,Performance,Từ Entry đến Main,1. Đo thời gian,"Transition hoàn thành trong <500ms",High,10. NFR
+TC_064,Countdown accuracy ±5s,Performance,Server-client countdown,1. So sánh timer,"Server-client tolerance ≤5 giây",High,10. NFR
+TC_065,ZNS sending <3s,Performance,Countdown = 0,1. Đo API response time,"API response <3 giây (send initiated)",High,10. NFR
+TC_066,First Aid load <2s,Performance,Mở First Aid (cached),1. Đo thời gian,"Load <2 giây",Medium,10. NFR
+TC_067,Hospital Map load <3s,Performance,Mở Hospital Map,1. Đo thời gian,"Load <3 giây",Medium,10. NFR
+TC_068,Location chỉ share khi SOS,Security,SOS KHÔNG kích hoạt,1. Kiểm tra network requests,"KHÔNG gửi location data",High,10. NFR
+TC_069,ZNS HTTPS,Security,SOS gửi,1. Kiểm tra requests,"Sử dụng HTTPS",High,10. NFR
+TC_070,CSKH API authenticated,Security,Alert CSKH,1. Kiểm tra API calls,"API calls có authentication",High,10. NFR
+TC_071,Data Retention 90 ngày,Privacy,SOS events,1. Kiểm tra backend,"Data auto-delete sau 90 ngày",Medium,10. NFR
+TC_072,Font size min 16sp body,Accessibility,All screens,1. Kiểm tra fonts,"Body text min 16sp, headers 20sp",Medium,10. NFR
+TC_073,Contrast ratio ≥4.5:1,Accessibility,Text elements,1. Kiểm tra contrast,"Text contrast ≥4.5:1, UI elements ≥3:1",Medium,10. NFR
+TC_074,Touch target min 48x48dp,Accessibility,Interactive elements,1. Đo touch targets,"Tất cả buttons ≥48x48dp",High,10. NFR
+TC_075,Emergency color #DC2626,Accessibility,SOS buttons,1. Kiểm tra màu,"Đỏ #DC2626 cho khẩn cấp, đủ contrast",Medium,10. NFR
+TC_076,Sound/Haptic bypass DND,Accessibility,Do Not Disturb mode bật,1. Kích hoạt SOS,"Sound/Haptic VẪN phát dù DND bật",High,10. NFR
+TC_077,SOS-00 Entry components,UI Spec,Màn hình SOS Entry,1. Kiểm tra UI,"Header ""🚨 Bạn cần giúp đỡ?"", Description ""Kích hoạt để gửi thông báo khẩn cấp đến người thân"", Button ""🆘 KÍCH HOẠT SOS"" (RED), ""← Quay lại""",Medium,11. UI Specification
+TC_078,SOS-01 Main components,UI Spec,Màn hình SOS Main,1. Kiểm tra UI,"Header ""🚨 SOS"", Countdown Timer, Description ""Tự động gửi sau {X}s"", ""🆘 GỬI CẢNH BÁO NGAY"" button (RED largest), ""❌ HỦY"" button (smaller)",Medium,11. UI Specification
+TC_079,SOS-02 Dashboard components,UI Spec,Màn hình Dashboard,1. Kiểm tra UI,"Success Header ""✅ Đã gửi cảnh báo thành công!"", Status Info, Primary Actions (115, Người thân), Medium Actions (BV, Sơ cứu), Close X",Medium,11. UI Specification
+TC_080,ERR-07 ZNS Failed screen,Failure Screen,ZNS fail sau retries,1. Kiểm tra FAILURE state,"⚠️ Icon, Title ""Không thể gửi cảnh báo"" (RED), Subtitle, Retry Button (secondary nhỏ), Emergency actions",High,11. UI Specification
+TC_081,Screen States - Countdown 0-20s,State,Countdown 0-20s,1. Quan sát UI,"Normal animation, Beep nhẹ mỗi 5s",Medium,11. UI Specification
+TC_082,Screen States - Countdown 20-25s,State,Countdown 20-25s,1. Quan sát UI,"Faster animation, Beep mỗi 2s",Medium,11. UI Specification
+TC_083,Screen States - Countdown 25-30s,State,Countdown 25-30s,1. Quan sát UI,"Urgent animation, Beep liên tục",Medium,11. UI Specification
+TC_084,Screen States - Escalation PAUSED,State,User đang gọi 115,1. Quan sát escalation,"PAUSED state, chỉ gửi ZNS không auto-call",High,11. UI Specification
+TC_085,Screen States - Call drop <10s,State,Connect call rồi drop <10s,1. Quan sát escalation,"Continue state, gọi contact tiếp theo",High,11. UI Specification
+TC_086,Navigation flow test,Navigation,Full flow,1. Navigate theo Mermaid diagram,"Home → SOS Entry → SOS Main → Dashboard → Contact List/Hospital Map/First Aid → Dashboard → Home",Medium,11. UI Specification
+TC_087,VoiceOver/TalkBack support,Accessibility,Tất cả screens,1. Bật VoiceOver/TalkBack,"Tất cả buttons/elements được đọc đúng label",Medium,12. Accessibility
+TC_088,Android Foreground Service,Platform,Android + countdown đang chạy,1. Force-close app,"Foreground Service tiếp tục countdown, SOS gửi khi hết",High,13. Platform
+TC_089,iOS Background Task,Platform,iOS + countdown đang chạy,1. Swipe-close app,"beginBackgroundTask tiếp tục (max 30s iOS), SOS gửi",High,13. Platform
+TC_090,State persistence Local Storage,Recovery,SOS triggered,1. Kiểm tra Local Storage,"Lưu sos_triggered_at, countdown_remaining, sos_status",Medium,13. Platform
+TC_091,App mở lại trong cooldown,Recovery,App bị kill + mở lại trong 30 phút,1. Mở lại app,"Hiển thị Dashboard với trạng thái đồng bộ từ Local Storage",Medium,13. Platform
+TC_092,Google Maps API integration,Integration,Hospital Map,1. Tìm BV,"Google Maps Places API trả về hospitals",Medium,14. Integration
+TC_093,ZNS OA integration,Integration,SOS gửi,1. POST /sos/send,"Zalo API trả về HTTP 200",High,14. Integration
+TC_094,CSKH API integration,Integration,SOS gửi,1. Kiểm tra CSKH system,"CSKH nhận alert",High,14. Integration
+TC_095,Google Maps navigation deep link,Integration,Chỉ đường BV,1. Tap Chỉ đường,"Google Maps mở navigation",Medium,14. Integration
+TC_096,Android FINE_LOCATION permission,Permission,Location granted,1. Gửi SOS,"GPS location được gửi",High,15. Permissions
+TC_097,Android FOREGROUND_SERVICE permission,Permission,Service granted,1. App bị kill trong countdown,"Service tiếp tục chạy",High,15. Permissions
+TC_098,iOS Location When In Use,Permission,Location granted,1. Gửi SOS,"GPS được gửi",High,15. Permissions
+TC_099,iOS Background Modes,Permission,Background granted,1. App suspend trong countdown,"Background Task chạy",High,15. Permissions
+TC_100,Permission revoked mid-countdown,Edge,Countdown đang chạy + revoke Location,1. User revoke Location trong Settings,"Warning ""Không có vị trí"", tiếp tục gửi SOS với ""Vị trí không xác định""",High,16. Edge Cases
+TC_101,Phone interrupt countdown,Edge,Countdown + nhận cuộc gọi đến,1. Nhận cuộc gọi,"Countdown tiếp tục chạy ngầm",Medium,16. Edge Cases
+TC_102,App chuyển background,Edge,Countdown đang chạy,1. Nhấn Home button,"Countdown tiếp tục (Foreground Service/Background Task)",High,16. Edge Cases
+TC_103,Countdown 30s đúng giây,Performance,Countdown bắt đầu,1. Đo thời gian 30 → 0,"Tổng thời gian = 30.000ms ±500ms",High,16. Edge Cases
+TC_104,Pin boundary 9%,Boundary,Pin = 9%,1. Kích hoạt SOS,"Countdown 10 giây (9% < 10%)",Medium,16. Edge Cases
+TC_105,Cooldown boundary 30 phút,Boundary,SOS gửi cách đây đúng 30 phút,1. Tap SOS,"Cho phép gửi SOS mới",Medium,16. Edge Cases
+TC_106,Cooldown boundary 29 phút 59 giây,Boundary,SOS gửi cách đây 29:59,1. Tap SOS,"Chặn, redirect Dashboard",Medium,16. Edge Cases
+TC_107,First Aid - CPR (Tim mạch),Sub-screen,Đang ở First Aid screen,"1. Tap category ""Tim mạch (CPR)""","Hiển thị màn hình SOS-05a với hướng dẫn CPR chi tiết, disclaimer visible",Medium,17. First Aid Screens
+TC_108,First Aid - Stroke (Đột quỵ),Sub-screen,Đang ở First Aid screen,"1. Tap category ""Đột quỵ (F.A.S.T)""","Hiển thị màn hình SOS-05b với hướng dẫn F.A.S.T, disclaimer visible",Medium,17. First Aid Screens
+TC_109,First Aid - Low Sugar (Hạ đường huyết),Sub-screen,Đang ở First Aid screen,"1. Tap category ""Hạ đường huyết""","Hiển thị màn hình SOS-05c với hướng dẫn xử lý hạ đường huyết, disclaimer visible",Medium,17. First Aid Screens
+TC_110,First Aid - Fall (Té ngã),Sub-screen,Đang ở First Aid screen,"1. Tap category ""Té ngã""","Hiển thị màn hình SOS-05d với hướng dẫn sơ cứu té ngã, disclaimer visible",Medium,17. First Aid Screens
+TC_111,Dashboard Close button (X),Navigation,Đang ở SOS Support Dashboard,1. Tap nút X (Close button),"Quay về Home screen, Dashboard đóng lại",High,18. Dashboard Actions
+TC_112,Compatibility - iOS 15+,Platform,Device iOS 15.0,1. Cài app và chạy SOS flow,"App hoạt động đúng, không crash, không UI glitch",High,19. Compatibility
+TC_113,Compatibility - Android 10+,Platform,Device Android 10 (API 29),1. Cài app và chạy SOS flow,"App hoạt động đúng, Foreground Service OK",High,19. Compatibility
+TC_114,Compatibility - Screen sizes,Responsive,"Devices: iPhone SE (4.7in) đến iPad Pro (12.9in)",1. Kiểm tra UI trên các screen sizes,"UI responsive đúng, buttons đủ lớn, text không bị cắt",Medium,19. Compatibility
+TC_115,Privacy Policy link in Settings,Privacy,Đang ở Settings screen,1. Tìm và tap Privacy Policy link,"Mở browser/webview hiển thị Privacy Policy page",Medium,20. Privacy & Validation
+TC_116,Validation - Phone format VN,Validation,Thêm người thân,"1. Nhập SĐT không hợp lệ: ""123"", ""abc""","Hiển thị error: ""Số điện thoại không hợp lệ""",High,20. Privacy & Validation
+TC_117,Validation - Phone format valid,Validation,Thêm người thân,"1. Nhập SĐT hợp lệ: ""0901234567""","Chấp nhận SĐT, lưu thành công",High,20. Privacy & Validation
+TC_118,Validation - GPS range,Validation,GPS trả về coordinates,1. Kiểm tra GPS validation,"Lat: -90 to 90, Lng: -180 to 180, reject invalid values",Medium,20. Privacy & Validation
+TC_119,Gọi 115 button on SOS Main,GAP-01,Đang ở màn hình SOS Main + countdown đang chạy,"1. Nhấn icon/button ""Gọi 115"" (nếu có)","Mở native phone app gọi 115, countdown TIẾP TỤC chạy ngầm, ZNS vẫn gửi khi countdown = 0",High,3. Gọi 115
+TC_120,ZNS với GPS không xác định,GAP-02,SOS + GPS timeout + No last known location,1. Kiểm tra ZNS content được gửi,"ZNS có text ""Không xác định được vị trí"", KHÔNG có link Google Maps, vẫn có Tên + SĐT + Thời gian",High,9. ZNS Templates
+TC_121,Escalation với ít contacts,GAP-03,User chỉ có 2 contacts (ít hơn 5),1. Cả 2 contacts không trả lời (40s total),"Sau 2 contacts → Gửi alert CSKH → Hiển thị prompt ""Gọi 115 ngay"" (KHÔNG loop lại contacts)",Medium,4. Escalation

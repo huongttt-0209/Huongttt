@@ -1,0 +1,19 @@
+report_id,patient_id,type,period,created_at,read,badge_visible,notes
+RPT001,P01,week,2026-W05,2026-02-02 08:00,true,false,Read report
+RPT002,P01,week,2026-W04,2026-01-26 08:00,true,false,Read report
+RPT003,P01,month,2026-01,2026-02-01 00:00,false,true,Unread - badge visible
+RPT004,P01,day,2026-02-02,2026-02-03 00:00,false,true,Unread daily
+RPT005,P01,day,2026-02-01,2026-02-02 00:00,true,false,Read daily
+RPT101,P06,week,2026-W05,2026-02-02 08:00,false,true,Unread week
+RPT102,P06,week,2026-W04,2026-01-26 08:00,false,true,Unread week
+RPT103,P06,week,2026-W03,2026-01-19 08:00,false,true,Unread week
+RPT104,P06,week,2026-W02,2026-01-12 08:00,false,true,Unread week
+RPT105,P06,week,2026-W01,2026-01-05 08:00,false,true,Unread week
+RPT106,P06,month,2026-01,2026-02-01 00:00,false,true,Unread month
+RPT107,P06,month,2025-12,2026-01-01 00:00,false,true,Unread month
+RPT108,P06,day,2026-02-02,2026-02-03 00:00,false,true,Unread daily
+RPT109,P06,day,2026-02-01,2026-02-02 00:00,false,true,Unread daily
+RPT110,P06,day,2026-01-31,2026-02-01 00:00,false,true,Unread daily
+RPT201,P02,week,2026-W03,2026-01-19 08:00,true,false,Only month data patient
+RPT202,P02,month,2026-01,2026-02-01 00:00,false,true,Only month data patient
+RPT203,P02,month,2025-12,2026-01-01 00:00,true,false,Only month data patient

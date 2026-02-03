@@ -1,0 +1,10 @@
+connection_id,caregiver_id,patient_id,status,permission_1,permission_2,permission_3,permission_4,permission_5,permission_6,created_at,notes
+CON001,C01,P01,connected,ON,ON,ON,ON,ON,ON,2026-01-15,Full permissions
+CON002,C01,P02,connected,ON,ON,OFF,ON,OFF,ON,2026-01-20,Partial permissions
+CON003,C02,P03,connected,OFF,ON,ON,ON,ON,ON,2026-01-25,Permission #1 OFF
+CON004,C03,P01,connected,ON,ON,ON,ON,ON,ON,2026-01-10,Single patient
+CON005,C04,P05,connected,ON,ON,ON,ON,ON,ON,2026-02-01,New connection
+CON006,C05,P01,connected,ON,ON,ON,ON,ON,ON,2026-01-05,No selection yet
+CON007,C05,P04,connected,ON,ON,ON,ON,ON,ON,2026-01-06,No selection yet
+CON008,C05,P06,connected,ON,ON,ON,ON,ON,ON,2026-01-07,No selection yet
+CON009,C01,P01,revoke_test,ON→OFF,ON,ON,ON,ON,ON,2026-02-03,For 403 test

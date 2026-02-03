@@ -1,0 +1,8 @@
+user_id,user_profile,data_type,metric_name,calculation,value,expected_result,notes,srs_ref,period
+00000009-0000-0000-0000-000000000009,khong_ro,bp_load,% vượt 140/90,3/20*100%,15.0%,Chớm cao,15-30%,BR-006,2026-01-01~2026-01-31
+00000009-0000-0000-0000-000000000009,khong_ro,arv,ARV tâm thu,Σ|ΔSYSᵢ|/(n-1)=159/19,8.4,Ổn định,<10,BR-006,2026-01-01~2026-01-31
+00000009-0000-0000-0000-000000000009,khong_ro,mediff,ME diff tâm thu,140.0 - 128.7,+11,Cân bằng,-15~15 mmHg,BR-006,2026-01-01~2026-01-31
+00000009-0000-0000-0000-000000000009,khong_ro,tuan_thu,Tỷ lệ tuân thủ lịch đo,7/31*100%,22.6%,Cần cải thiện,">=80% tốt, 50-80% khá",BR-005,2026-01-01~2026-01-31
+00000009-0000-0000-0000-000000000009,khong_ro,sys_tb,SYS trung bình tháng,Σ(SYS)/20,133.6,Chớm cao,mục tiêu <130,BR-005,2026-01-01~2026-01-31
+00000009-0000-0000-0000-000000000009,khong_ro,sys_max,SYS cao nhất tháng,MAX(SYS),148/95,Cao,>160 nguy hiểm,BR-005,2026-01-01~2026-01-31
+00000009-0000-0000-0000-000000000009,khong_ro,sys_min,SYS thấp nhất tháng,MIN(SYS),125/80,Cao,<90 cần chú ý,BR-005,2026-01-01~2026-01-31

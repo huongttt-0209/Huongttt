@@ -1,0 +1,6 @@
+caregiver_id,name,phone,email,following_count,notes
+C01,Nguyễn Văn An,0912345678,an@email.com,2,Full access multi-patient
+C02,Trần Thị Bình,0923456789,binh@email.com,1,Limited access (Permission OFF)
+C03,Lê Văn Cường,0934567890,cuong@email.com,1,Single patient full access
+C04,Phạm Thị Dung,0945678901,dung@email.com,1,New caregiver
+C05,Hoàng Văn Em,0956789012,em@email.com,3,No patient selected

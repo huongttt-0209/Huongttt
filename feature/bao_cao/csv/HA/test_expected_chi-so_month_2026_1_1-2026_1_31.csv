@@ -1,0 +1,33 @@
+user_id,user_profile,data_type,metric_name,calculation,value,expected_result,notes,srs_ref,period
+00000001-0000-0000-0000-000000000001,THA_diagnosed,kiem_soat,% trong ngưỡng mục tiêu,35/44*100%,79.5%,Kiểm soát tối ưu,>70%,BR-006,2026-01-01~2026-01-31
+00000001-0000-0000-0000-000000000001,THA_diagnosed,arv,ARV tâm thu,Σ|ΔSYSᵢ|/(n-1)=224/43,5.2,Ổn định,<10,BR-006,2026-01-01~2026-01-31
+00000001-0000-0000-0000-000000000001,THA_diagnosed,mediff,ME diff tâm thu,124.8 - 119.7,+5,Cân bằng,-15~15 mmHg,BR-006,2026-01-01~2026-01-31
+00000001-0000-0000-0000-000000000001,THA_diagnosed,xu_huong_thang,Δ SYS vs tháng trước,122.3 - 118,+4,Ổn định,±5 mmHg,BR-005,2026-01-01~2026-01-31 vs 2025-12
+00000001-0000-0000-0000-000000000001,THA_diagnosed,tuan_thu,Tỷ lệ tuân thủ lịch đo,22/31*100%,71.0%,Khá,50-80% cần cải thiện,BR-005,2026-01-01~2026-01-31
+00000001-0000-0000-0000-000000000001,THA_diagnosed,sys_tb,SYS trung bình tháng,Σ(SYS)/44,122.3,Trong ngưỡng,120-130 mục tiêu,BR-005,2026-01-01~2026-01-31
+00000001-0000-0000-0000-000000000001,THA_diagnosed,sys_max,SYS cao nhất tháng,MAX(SYS),132,Trên ngưỡng,>130 cần chú ý,BR-005,2026-01-01~2026-01-31
+00000001-0000-0000-0000-000000000001,THA_diagnosed,sys_min,SYS thấp nhất tháng,MIN(SYS),118,Dưới ngưỡng,<120 thấp,BR-005,2026-01-01~2026-01-31
+00000005-0000-0000-0000-000000000005,cao_chua_cdoan,bp_load,% vượt 140/90,44/44*100%,100.0%,Gánh nặng lớn,>30%,BR-006,2026-01-01~2026-01-31
+00000005-0000-0000-0000-000000000005,cao_chua_cdoan,arv,ARV tâm thu,Σ|ΔSYSᵢ|/(n-1)=269/43,6.3,Ổn định,<10,BR-006,2026-01-01~2026-01-31
+00000005-0000-0000-0000-000000000005,cao_chua_cdoan,mediff,ME diff tâm thu,155.7 - 148.9,+7,Cân bằng,-15~15 mmHg,BR-006,2026-01-01~2026-01-31
+00000005-0000-0000-0000-000000000005,cao_chua_cdoan,xu_huong_thang,Δ SYS vs tháng trước,154.0 - 145,+9,Tăng nhẹ,cần theo dõi,BR-005,2026-01-01~2026-01-31 vs 2025-12
+00000005-0000-0000-0000-000000000005,cao_chua_cdoan,tuan_thu,Tỷ lệ tuân thủ lịch đo,22/31*100%,71.0%,Khá,50-80% cần cải thiện,BR-005,2026-01-01~2026-01-31
+00000005-0000-0000-0000-000000000005,cao_chua_cdoan,sys_tb,SYS trung bình tháng,Σ(SYS)/44,153.5,Cao,>140 cần can thiệp,BR-005,2026-01-01~2026-01-31
+00000005-0000-0000-0000-000000000005,cao_chua_cdoan,sys_max,SYS cao nhất tháng,MAX(SYS),168,Rất cao,>160 nguy hiểm,BR-005,2026-01-01~2026-01-31
+00000005-0000-0000-0000-000000000005,cao_chua_cdoan,sys_min,SYS thấp nhất tháng,MIN(SYS),142,Cao,>140 cần can thiệp,BR-005,2026-01-01~2026-01-31
+00000006-0000-0000-0000-000000000006,binh_thuong,bp_load,% vượt 140/90,2/44*100%,4.5%,Bình thường,<15%,BR-006,2026-01-01~2026-01-31
+00000006-0000-0000-0000-000000000006,binh_thuong,arv,ARV tâm thu,Σ|ΔSYSᵢ|/(n-1)=246/43,5.7,Ổn định,<10,BR-006,2026-01-01~2026-01-31
+00000006-0000-0000-0000-000000000006,binh_thuong,mediff,ME diff tâm thu,120.9 - 115.7,+5,Cân bằng,-15~15 mmHg,BR-006,2026-01-01~2026-01-31
+00000006-0000-0000-0000-000000000006,binh_thuong,xu_huong_thang,Δ SYS vs tháng trước,118.0 - 117,+1,Ổn định,±5 mmHg,BR-005,2026-01-01~2026-01-31 vs 2025-12
+00000006-0000-0000-0000-000000000006,binh_thuong,tuan_thu,Tỷ lệ tuân thủ lịch đo,22/31*100%,71.0%,Khá,50-80% cần cải thiện,BR-005,2026-01-01~2026-01-31
+00000006-0000-0000-0000-000000000006,binh_thuong,sys_tb,SYS trung bình tháng,Σ(SYS)/44,118.8,Bình thường,<130 tốt,BR-005,2026-01-01~2026-01-31
+00000006-0000-0000-0000-000000000006,binh_thuong,sys_max,SYS cao nhất tháng,MAX(SYS),143,Cao đột biến,>140 cần theo dõi,BR-005,2026-01-01~2026-01-31
+00000006-0000-0000-0000-000000000006,binh_thuong,sys_min,SYS thấp nhất tháng,MIN(SYS),114,Bình thường,<120 tốt,BR-005,2026-01-01~2026-01-31
+00000007-0000-0000-0000-000000000007,ko_on_dinh,bp_load,% vượt 140/90,19/57*100%,33.3%,Gánh nặng lớn,>30%,BR-006,2026-01-01~2026-01-31
+00000007-0000-0000-0000-000000000007,ko_on_dinh,arv,ARV tâm thu,Σ|ΔSYSᵢ|/(n-1)=1307/56,23.3,Bất ổn,>14,BR-006,2026-01-01~2026-01-31
+00000007-0000-0000-0000-000000000007,ko_on_dinh,mediff,ME diff tâm thu,114.2 - 128.3,-14,Tăng áp về tối,~-15 mmHg Risky,BR-006,2026-01-01~2026-01-31
+00000007-0000-0000-0000-000000000007,ko_on_dinh,xu_huong_thang,Δ SYS vs tháng trước,130.0 - 127,+3,Ổn định,±5 mmHg,BR-005,2026-01-01~2026-01-31 vs 2025-12
+00000007-0000-0000-0000-000000000007,ko_on_dinh,tuan_thu,Tỷ lệ tuân thủ lịch đo,19/31*100%,61.3%,Khá,50-80% cần cải thiện,BR-005,2026-01-01~2026-01-31
+00000007-0000-0000-0000-000000000007,ko_on_dinh,sys_tb,SYS trung bình tháng,Σ(SYS)/57,129.5,Chớm cao,~130 cần chú ý,BR-005,2026-01-01~2026-01-31
+00000007-0000-0000-0000-000000000007,ko_on_dinh,sys_max,SYS cao nhất tháng,MAX(SYS),160,Rất cao,>160 nguy hiểm,BR-005,2026-01-01~2026-01-31
+00000007-0000-0000-0000-000000000007,ko_on_dinh,sys_min,SYS thấp nhất tháng,MIN(SYS),108,Thấp,<110 cần chú ý,BR-005,2026-01-01~2026-01-31

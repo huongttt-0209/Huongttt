@@ -1,0 +1,8 @@
+user_id,user_profile,data_type,metric_name,calculation,value,expected_result,notes,srs_ref,period
+00000007-0000-0000-0000-000000000007,ko_on_dinh,bp_load,% vượt 140/90,12/21*100%,57.1%,Gánh nặng lớn,>30%,BR-006,2026-01-01~2026-01-31
+00000007-0000-0000-0000-000000000007,ko_on_dinh,arv,ARV tâm thu,Σ|ΔSYSᵢ|/(n-1)=556/20,27.8,Bất ổn,>14,BR-006,2026-01-01~2026-01-31
+00000007-0000-0000-0000-000000000007,ko_on_dinh,mediff,ME diff tâm thu,114.3 - 142.9,-29,Tăng áp về tối,<-15 mmHg Risky Evening,BR-006,2026-01-01~2026-01-31
+00000007-0000-0000-0000-000000000007,ko_on_dinh,tuan_thu,Tỷ lệ tuân thủ lịch đo,7/31*100%,22.6%,Cần cải thiện,">=80% tốt, 50-80% khá",BR-005,2026-01-01~2026-01-31
+00000007-0000-0000-0000-000000000007,ko_on_dinh,sys_tb,SYS trung bình tháng,Σ(SYS)/21,137.8,Chớm cao,mục tiêu <130,BR-005,2026-01-01~2026-01-31
+00000007-0000-0000-0000-000000000007,ko_on_dinh,sys_max,SYS cao nhất tháng,MAX(SYS),165/105,Rất cao,>160 nguy hiểm,BR-005,2026-01-01~2026-01-31
+00000007-0000-0000-0000-000000000007,ko_on_dinh,sys_min,SYS thấp nhất tháng,MIN(SYS),110/66,Bình thường,<90 cần chú ý,BR-005,2026-01-01~2026-01-31

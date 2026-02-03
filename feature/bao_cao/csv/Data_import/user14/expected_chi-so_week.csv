@@ -1,0 +1,4 @@
+user_id,user_profile,data_type,metric_name,calculation,value,expected_result,notes,srs_ref,period
+00000014-0000-0000-0000-000000000014,THA_diagnosed,kiem_soat,% trong ngưỡng mục tiêu,63/70*100%,90.0%,Kiểm soát tối ưu,>70%,BR-006,2026-01-19~2026-01-25
+00000014-0000-0000-0000-000000000014,THA_diagnosed,arv,ARV tâm thu,Σ|ΔSYSᵢ|/(n-1)=234/69,3.4,Ổn định,<10,BR-006,2026-01-19~2026-01-25
+00000014-0000-0000-0000-000000000014,THA_diagnosed,mediff,ME diff tâm thu,126.6 - 122.6,+4,Cân bằng,-15~15 mmHg,BR-006,2026-01-19~2026-01-25

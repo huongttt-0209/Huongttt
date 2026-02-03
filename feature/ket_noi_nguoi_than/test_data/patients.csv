@@ -1,0 +1,8 @@
+patient_id,name,danhxung,health_status,bp_target_sys,bp_target_dia,last_active,notes
+P01,Nguyễn Thị Hoa,Mẹ,THA,110-129,60-79,2026-02-03 08:00,Đầy đủ data 7d+30d
+P02,Trần Văn Nam,Bố,THA,110-129,60-79,2026-01-20 09:00,Chỉ có data tháng
+P03,Lê Thị Mai,Bà ngoại,Bình thường,,,2026-02-01 10:00,Không có data BP
+P04,Phạm Văn Đức,Ông nội,THA,120-140,70-90,2026-02-03 21:00,Nhiều lần đo/ngày
+P05,Hoàng Thị Lan,Cô,THA,110-129,60-79,2026-02-01 08:00,User mới 3 ngày
+P06,Vũ Văn Hùng,Chú,THA,110-129,60-79,2026-02-03 07:00,10 báo cáo chưa đọc
+P07,Đỗ Thị Hằng,Dì,THA,110-129,60-79,2026-01-28 08:00,Week boundary test - data on last day of week

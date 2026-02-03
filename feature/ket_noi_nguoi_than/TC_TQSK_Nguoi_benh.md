@@ -1,0 +1,179 @@
+# TC: US 1.1 - Xem Tổng quan Sức khỏe Người bệnh
+
+> **SRS Ref:** `feature/ket_noi_nguoi_than/srs.md` (Section B.4.2)  
+> **TD Ref:** `feature/ket_noi_nguoi_than/TD_TQSK_Nguoi_benh.md`  
+> **Skill:** createTC v2.4 → updateTC v2.6  
+> **Total TCs:** 47
+
+---
+
+## 📋 Error Messages Reference
+
+| Error Code | Nội dung đầy đủ |
+|:-----------|:----------------|
+| ES-001 | "[Danh xưng] chưa có lần đo nào trong khoảng thời gian này." |
+| ES-002 | "Không có đủ dữ liệu để tạo biểu đồ" |
+| ES-003 | "Chưa có báo cáo nào. Báo cáo sẽ được tạo tự động theo lịch định kỳ." |
+| TOAST-001 | "Quyền truy cập đã thay đổi" |
+
+---
+
+## 🗂️ Scenario Mapping (Kịch bản → BR)
+
+| KB | Mô tả | BR |
+|:---|:------|:---|
+| KB-1 | Xem biểu đồ xu hướng HA | BR-DB-001 |
+| KB-2 | Chọn xem chi tiết ngày | BR-DB-006 |
+| KB-3 | Quay lại từ chi tiết ngày | BR-DB-003 |
+| KB-4 | Đổi filter Tuần/Tháng | BR-DB-002 |
+| KB-5 | Auto-select khi Tuần empty | BR-DB-002 |
+| KB-6 | Tap điểm dữ liệu xem tooltip | BR-DB-005 |
+| KB-7 | Xem danh sách báo cáo | BR-RPT-001, BR-RPT-002 |
+| KB-8 | Xem chi tiết báo cáo | BR-DB-008 |
+| KB-9 | Empty State - Không có data HA | BR-DB-009 |
+| KB-10 | Empty State - Không có báo cáo | BR-DB-010 |
+| KB-11 | Permission OFF - Block ẩn | BR-DB-011, SEC-DB-001 |
+| KB-12 | Permission Revoke mid-session | SEC-DB-002 |
+| KB-13 | Multi-patient switching | - |
+| KB-14 | Average calculation | BR-DB-004 |
+
+---
+
+## 🧪 Test Cases
+
+### SECTION 1: BIỂU ĐỒ XU HƯỚNG HUYẾT ÁP (KB-1 → KB-6)
+
+| ID | Section | Testcase name | Sub-case | Pre-condition | Step | Expected output | Priority | Data Ref |
+|----|---------|---------------|----------|---------------|------|-----------------|----------|----------|
+| TC_001 | KB-1 / BR-DB-001 | [FUNC] Xem biểu đồ HA | Happy path - Week view | 1. C01 đã kết nối P01 2. Permission #1 = ON 3. P01 có data 7 ngày | 1. C01 chọn P01 từ Profile Switcher 2. Xem Block "Xu hướng huyết áp" | 2.1. Hiển thị Line Chart với 2 đường: Tâm thu (xanh lá #2BB89A), Tâm trương (xanh dương #3B82F6) 2.2. Toggle mặc định = "Tuần" 2.3. Chip filter = "Tất cả" 2.4. Trục X = dd/MM (7 ngày) 2.5. Trục Y = mmHg (range 70-140) | P0 | **TD_001-008:** Sys 120-135, Dia 78-88, 7 ngày liên tiếp |
+| TC_002 | KB-1 / BR-DB-001 | [FUNC] Xem biểu đồ HA | Month view | 1. C01 đã chọn P01 2. Đang ở Week view | 1. Tap toggle "Tháng" 2. Xem chart | 2.1. Chart reload với data 30 ngày 2.2. Chip reset về "Tất cả" 2.3. Trục X = dd/MM (spread 30 ngày) | P0 | **DC_003:** P01 30 ngày data |
+| TC_003 | KB-2 / BR-DB-006 | [FUNC] Xem chi tiết ngày | Drill-down to hour | 1. Đang xem chart Tuần 2. Chip "Tất cả" active | 1. Tap chip "03/02" 2. Xem chart | 2.1. Chart chuyển sang Hour view 2.2. Trục X = HH:00 (24h format) 2.3. Hiển thị tất cả lần đo trong ngày 03/02 2.4. Chip "03/02" active (highlight) | P0 | **TD_024:** Chip "03/02" |
+| TC_004 | KB-3 / BR-DB-003 | [FUNC] Quay lại overview | Tap "Tất cả" | 1. Đang xem Hour view ngày 03/02 | 1. Tap chip "Tất cả" 2. Xem chart | 2.1. Chart quay lại Overview mode 2.2. Trục X = dd/MM 2.3. Chip "Tất cả" active | P0 | - |
+| TC_005 | KB-4 / BR-DB-002 | [FUNC] Đổi filter | Tuần → Tháng | 1. Đang xem Week view | 1. Tap toggle "Tháng" | 1.1. Chart reload với 30 ngày 1.2. Chip reset về "Tất cả" | P0 | **TD_021:** Filter "Tháng" |
+| TC_006 | KB-4 / BR-DB-002 | [FUNC] Đổi filter | Tháng → Tuần | 1. Đang xem Month view | 1. Tap toggle "Tuần" | 1.1. Chart reload với 7 ngày 1.2. Chip reset về "Tất cả" | P0 | **TD_020:** Filter "Tuần" |
+| TC_007 | KB-5 / BR-DB-002 | [FUNC] Auto-fallback | Tuần empty → Tháng | 1. C01 chọn P02 2. P02 không có data tuần, có data tháng | 1. Xem Block HA 2. Check default toggle | 2.1. Toggle tự động chọn "Tháng" 2.2. Hiển thị data tháng (4 điểm) 2.3. KHÔNG hiển thị empty state | P0 | **TD_022, DC_004:** P02 no week data |
+| TC_008 | KB-6 / BR-DB-005 | [FUNC] Tooltip | Tap data point | 1. Đang xem chart có data | 1. Tap vào 1 điểm dữ liệu | 1.1. Hiển thị tooltip: "T2, 03/02: 128/83 mmHg" 1.2. Format: "Thứ, dd/MM: XXX/YY mmHg" | P1 | **TD_001:** Sys 128, Dia 83, date 03/02 |
+| TC_009 | KB-6 / BR-DB-005 | [UI] Tooltip | Dismiss tooltip | 1. Tooltip đang hiển thị | 1. Tap outside tooltip | 1. Tooltip đóng lại | P2 | - |
+
+### SECTION 2: AVERAGE CALCULATION (KB-14)
+
+| ID | Section | Testcase name | Sub-case | Pre-condition | Step | Expected output | Priority | Data Ref |
+|----|---------|---------------|----------|---------------|------|-----------------|----------|----------|
+| TC_010 | KB-14 / BR-DB-004 | [FUNC] Average | Nhiều lần đo/ngày | 1. C01 chọn P04 2. P04 có 4 lần đo ngày 03/02 | 1. Xem chart Week view 2. Check điểm ngày 03/02 | 2.1. Hiển thị 1 điểm (average) 2.2. Sys = 131 mmHg ((130+142+128+125)/4) 2.3. Dia = 84 mmHg ((85+90+82+80)/4) | P1 | **DC_010:** 4 readings: 130,142,128,125 / 85,90,82,80 |
+| TC_011 | KB-14 / BR-DB-004 | [FUNC] Average | 2 lần đo/ngày | 1. P04 có 2 lần đo ngày 02/02 | 1. Tap chip "02/02" 2. Xem Hour view | 2.1. Hiển thị 2 điểm riêng biệt (07:00 và 19:00) 2.2. Point 1: 132/84 2.3. Point 2: 138/88 | P1 | **DC_011:** 2 readings: 132,138 / 84,88 |
+| TC_012 | KB-14 / BR-DB-004 | [FUNC] Average | 1 lần đo/ngày | 1. P01 có 1 lần đo ngày 01/02 | 1. Check điểm ngày 01/02 | 1.1. Hiển thị 128/82 (no average, direct value) | P1 | **DC_012:** 1 reading: 128/82 |
+
+### SECTION 3: BÁO CÁO SỨC KHỎE (KB-7 → KB-8)
+
+| ID | Section | Testcase name | Sub-case | Pre-condition | Step | Expected output | Priority | Data Ref |
+|----|---------|---------------|----------|---------------|------|-----------------|----------|----------|
+| TC_013 | KB-7 / BR-RPT-001 | [FUNC] Danh sách báo cáo | Hiển thị block | 1. P01 có 5 báo cáo (2 unread) | 1. Xem Dashboard 2. Check Block "Báo cáo sức khỏe" | 2.1. Hiển thị tối đa 3 báo cáo chưa đọc mới nhất 2.2. Badge đỏ = "2" 2.3. Button "Xem thêm" | P1 | **TD_033-036:** 5 reports, 2 unread |
+| TC_014 | KB-7 / BR-RPT-001 | [FUNC] Danh sách báo cáo | Nhiều unread | 1. P06 có 10 unread reports | 1. Xem Dashboard 2. Check Block | 2.1. Hiển thị 3 báo cáo mới nhất 2.2. Text: "Còn 7 báo cáo khác chưa đọc" 2.3. Badge = "10" | P1 | **TD_037, DC_014:** 10+ unread |
+| TC_015 | KB-7 / BR-RPT-002 | [FUNC] Mở danh sách | Navigate | 1. Đang xem Dashboard | 1. Tap "Xem thêm" trong Block Báo cáo | 1.1. Navigate to SCR-REPORT-LIST 1.2. Header: "Báo cáo sức khỏe của [Mẹ]" 1.3. Toggle: Tuần (default), Tháng | P1 | - |
+| TC_016 | KB-7 / BR-RPT-002 | [UI] Badge unread | Báo cáo chưa đọc | 1. Đang ở SCR-REPORT-LIST | 1. Xem list báo cáo | 1.1. Báo cáo unread có: ● đỏ trên icon + Viền trái xanh 1.2. Báo cáo read: Không có marker | P1 | **TD_035:** Unread = false → badge |
+| TC_017 | KB-8 / BR-DB-008 | [FUNC] Chi tiết báo cáo | Mở báo cáo | 1. Đang ở SCR-REPORT-LIST | 1. Tap "Báo cáo Tuần 5 - 2026" | 1.1. Navigate to chi tiết báo cáo 1.2. Hiển thị TẤT CẢ sections 1.3. UI giống Patient view | P1 | - |
+
+### SECTION 4: EMPTY STATES (KB-9 → KB-10)
+
+| ID | Section | Testcase name | Sub-case | Pre-condition | Step | Expected output | Priority | Data Ref |
+|----|---------|---------------|----------|---------------|------|-----------------|----------|----------|
+| TC_018 | KB-9 / BR-DB-009 | [FUNC] Empty HA | Không có data | 1. C02 chọn P03 2. P03 không có data HA | 1. Xem Block HA | 1.1. Hiển thị empty state: Title: "Biểu đồ biểu diễn huyết áp" + Kolia mascot + Message: "[Bà ngoại] chưa có lần đo nào trong khoảng thời gian này." | P0 | **ES_001, TD_030:** Danh xưng "Bà ngoại" |
+| TC_019 | KB-9 / BR-DB-009 | [FUNC] Empty HA | Danh xưng khác | 1. P01 tạm thời không có data 2. Danh xưng = "Mẹ" | 1. Xem Block HA | 1.1. Message: "[Mẹ] chưa có lần đo nào trong khoảng thời gian này." | P1 | **ES_002, TD_028:** Danh xưng "Mẹ" |
+| TC_020 | KB-10 / BR-DB-010 | [FUNC] Empty báo cáo | User mới | 1. C04 chọn P05 2. P05 là user mới, chưa có báo cáo | 1. Tap "Xem thêm" báo cáo 2. Xem SCR-REPORT-LIST | 2.1. Hiển thị empty state 2.2. Message: "Chưa có báo cáo nào. Báo cáo sẽ được tạo tự động theo lịch định kỳ." | P1 | **ES_003:** New user report |
+
+### SECTION 5: PERMISSION (KB-11 → KB-12)
+
+| ID | Section | Testcase name | Sub-case | Pre-condition | Step | Expected output | Priority | Data Ref |
+|----|---------|---------------|----------|---------------|------|-----------------|----------|----------|
+| TC_021 | KB-11 / BR-DB-011 | [FUNC] Permission OFF | Block ẩn | 1. C02 đã kết nối P03 2. Permission #1 = OFF | 1. Xem Dashboard của P03 | 1.1. Block "Xu hướng huyết áp" KHÔNG hiển thị 1.2. Button "Xem báo cáo" KHÔNG hiển thị 1.3. Các block khác (nếu có) vẫn hiển thị | P0 | **TD_026, DC_008:** Permission OFF |
+| TC_022 | KB-11 / SEC-DB-001 | [SEC] API Auth | Check server-side | 1. Permission #1 = OFF | 1. Call API /patients/{id}/health-overview | 1.1. API return 403 Forbidden | P0 | - |
+| TC_023 | KB-12 / SEC-DB-002 | [SEC] Permission revoke | Mid-session | 1. C03 đang xem Dashboard P01 2. Permission #1 = ON | 1. [Backend] P01 tắt Permission #1 2. C03 thực hiện action refresh | 2.1. API return 403 2.2. Hiển thị Toast: "Quyền truy cập đã thay đổi" 2.3. Block HA biến mất khỏi UI | P0 | **TD_027:** ON → OFF revoke |
+
+### SECTION 6: MULTI-PATIENT SWITCHING (KB-13)
+
+| ID | Section | Testcase name | Sub-case | Pre-condition | Step | Expected output | Priority | Data Ref |
+|----|---------|---------------|----------|---------------|------|-----------------|----------|----------|
+| TC_024 | KB-13 / - | [FUNC] Switch patient | P01 → P02 | 1. C01 đang xem P01 (Week view) 2. C01 cũng theo dõi P02 | 1. Mở Profile Switcher 2. Chọn P02 | 2.1. Dashboard reload với data P02 2.2. Toggle auto-select "Tháng" (fallback) 2.3. P01 view state cached | P0 | **DC_016-017:** C01 multi-patient |
+| TC_025 | KB-13 / - | [FUNC] Switch patient | P02 → P01 (restore) | 1. C01 đang xem P02 2. Trước đó xem P01 Week view | 1. Switch back to P01 | 1.1. Restore Week view (cached) 1.2. Chip "Tất cả" restored 1.3. Data P01 displayed | P0 | **DC_018:** Switch back restore |
+| TC_026 | KB-13 / - | [FUNC] Default view | First-time | 1. C05 mới login 2. C05 theo dõi P01, P04, P06 3. selectedPatient = null | 1. Xem SCR-01 Dashboard | 1.1. Hiển thị "Default View Prompt" 1.2. Icon 👋 + Title: "Chọn người thân để bắt đầu" 1.3. CTA: "📋 Xem danh sách người thân" 1.4. Link "Ngừng theo dõi" ẨN | P1 | - |
+
+### SECTION 7: BOUNDARY & EDGE CASES
+
+| ID | Section | Testcase name | Sub-case | Pre-condition | Step | Expected output | Priority | Data Ref |
+|----|---------|---------------|----------|---------------|------|-----------------|----------|----------|
+| TC_027 | - / BR-DB-001 | [BOUNDARY] BP values | Systolic min | 1. P có reading sys = 60 | 1. Xem chart | 1.1. Điểm hiển thị tại Y = 60 | P2 | **TD_004:** BMin = 60 |
+| TC_028 | - / BR-DB-001 | [BOUNDARY] BP values | Systolic max | 1. P có reading sys = 250 | 1. Xem chart | 1.1. Điểm hiển thị tại Y = 250 1.2. Y-axis auto-scale | P2 | **TD_005:** BMax = 250 |
+| TC_029 | - / BR-DB-001 | [BOUNDARY] BP values | Diastolic min | 1. P có reading dia = 40 | 1. Xem chart | 1.1. Điểm hiển thị tại Y = 40 | P2 | **TD_009:** BMin = 40 |
+| TC_030 | - / BR-DB-001 | [BOUNDARY] BP values | Diastolic max | 1. P có reading dia = 150 | 1. Xem chart | 1.1. Điểm hiển thị tại Y = 150 | P2 | **TD_010:** BMax = 150 |
+| TC_031 | - / - | [BOUNDARY] Date | Week boundary | 1. P07 có data ngày 28/01 (7th day) | 1. Xem Week view | 1.1. Ngày 28/01 hiển thị trong Week 1.2. Ngày 27/01 cũng hiển thị | P2 | **TD_014:** Week boundary |
+| TC_032 | - / - | [BOUNDARY] Time | Midnight | 1. P có reading lúc 00:00 | 1. Tap chip xem Hour view | 1.1. Điểm hiển thị tại X = 00:00 | P2 | **TD_018:** Edge midnight |
+| TC_033 | - / - | [BOUNDARY] Time | End of day | 1. P có reading lúc 23:59 | 1. Tap chip xem Hour view | 1.1. Điểm hiển thị tại X = 23:00 (rounded) | P2 | **TD_019:** Edge end day |
+
+### SECTION 8: ĐẶC BIỆT Y TẾ
+
+| ID | Section | Testcase name | Sub-case | Pre-condition | Step | Expected output | Priority | Data Ref |
+|----|---------|---------------|----------|---------------|------|-----------------|----------|----------|
+| TC_034 | - / - | [FUNC] BP Target | So sánh ngưỡng | 1. P01 có target 110-129/60-79 2. P01 có reading 135/88 | 1. Xem chart 2. Check điểm 30/01 | 2.1. Điểm 135/88 hiển thị trên chart 2.2. KHÔNG có indicator vượt ngưỡng trên UI (chỉ hiển thị trong Report) | P1 | **TD_038-041:** BP targets |
+| TC_035 | - / BR-029 | [FUNC] Danh xưng | Relationship "khac" | 1. Relationship = "khac" 2. Họ tên = "Nguyễn Văn A" | 1. Xem Empty state | 1.1. Danh xưng = "Người thân" (không phải "Khác") 1.2. Display: "Người thân (Nguyễn Văn A)" | P1 | **TD_031:** Relationship "khac" |
+| TC_036 | - / - | [BOUNDARY] Danh xưng | Long name | 1. Danh xưng = "Bà ngoại họ Nguyễn" (>20 chars) | 1. Xem UI | 1.1. Text truncate hoặc wrap | P2 | **TD_032:** Long danh xung |
+
+### SECTION 9: UI/VALIDATION
+
+| ID | Section | Testcase name | Sub-case | Pre-condition | Step | Expected output | Priority | Data Ref |
+|----|---------|---------------|----------|---------------|------|-----------------|----------|----------|
+| TC_037 | - / BR-DB-003 | [UI] Day chips | Swipe horizontal | 1. Có nhiều ngày trong chart | 1. Swipe chips horizontally | 1.1. Chips scroll smoothly 1.2. Thứ tự: cũ → mới (left to right) | P1 | - |
+| TC_038 | - / - | [UI] Chart legend | Hiển thị legend | 1. Đang xem chart | 1. Check legend | 1.1. Legend: ● Tâm thu (xanh lá) + ● Tâm trương (xanh dương) | P2 | - |
+| TC_039 | - / - | [UI] Profile Selector | Hiển thị info | 1. C01 đã chọn P01 | 1. Check Profile Selector | 1.1. Avatar P01 1.2. Tên: "Mẹ (Nguyễn Thị Hoa)" 1.3. Last active: "Hoạt động 10 phút trước" | P1 | - |
+| TC_040 | - / - | [UI] Toggle | Active state | 1. Toggle "Tuần" active | 1. Check UI | 1.1. "Tuần" highlighted (background color) 1.2. "Tháng" muted | P2 | - |
+| TC_041 | - / - | [UI] Block header | Title display | 1. Block HA visible | 1. Check header | 1.1. Title: "Xu hướng huyết áp" 1.2. Toggle right-aligned | P2 | - |
+| TC_042 | - / - | [UI] Stop follow link | Visibility | 1. selectedPatient = P01 2. emptyState = hidden | 1. Check footer | 1.1. Link "Ngừng theo dõi" hiển thị 1.2. Style: text link, màu xám | P1 | - |
+| TC_043 | KB-4 / BR-RPT-002 | [UI] Filter switch | No toast | 1. Đang ở SCR-REPORT-LIST 2. Filter = Tuần | 1. Tap toggle "Tháng" | 1.1. List reload với report Tháng 1.2. KHÔNG hiển thị Toast 1.3. Toggle "Tháng" active | P1 | - |
+
+### SECTION 10: NON-FUNCTIONAL (TEA Review)
+
+| ID | Section | Testcase name | Sub-case | Pre-condition | Step | Expected output | Priority | Data Ref |
+|----|---------|---------------|----------|---------------|------|-----------------|----------|----------|
+| TC_044 | - / - | [PERF] Chart load | Load time | 1. C01 chọn P01 2. P01 có 30 ngày data | 1. Tap toggle "Tháng" 2. Đo thời gian load | 2.1. Chart render hoàn thành trong **< 2 giây** 2.2. Loading indicator hiển thị trong khi load | P1 | - |
+| TC_045 | - / SEC-DB-001 | [SEC] XSS Prevention | Danh xưng injection | 1. Patient có danh xưng = `<script>alert(1)</script>` | 1. Xem Empty state | 1.1. Text hiển thị raw: "<script>alert(1)</script>" 1.2. Script KHÔNG execute | P1 | - |
+| TC_046 | - / - | [FUNC] Dual-tab sync | Concurrent access | 1. C01 mở 2 tab Dashboard 2. Tab 1: xem P01 | 1. Tab 2: switch to P02 2. Tab 1: refresh | 2.1. Tab 1 vẫn xem P01 2.2. KHÔNG bị sync sang P02 | P2 | - |
+| TC_047 | - / - | [A11Y] Screen reader | Accessibility | 1. Bật VoiceOver/TalkBack | 1. Navigate chart bằng screen reader | 1.1. Chart có aria-label: "Biểu đồ xu hướng huyết áp" 1.2. Data points có aria-label với giá trị | P2 | - |
+
+---
+
+## 📊 QUALITY GATE
+
+| Criteria | Result | Status |
+|----------|--------|:------:|
+| BR Coverage | 14/14 BRs (100%) | ✅ Pass |
+| Scenario Coverage | 14/14 KB (100%) | ✅ Pass |
+| Error Messages | 4/4 ES codes (100%) | ✅ Pass |
+| Expected Specific | 47/47 specific | ✅ Pass |
+| TD Traceability | 30+ TD refs | ✅ Pass |
+| Non-Functional | 4/4 (PERF, SEC, A11Y, Concurrent) | ✅ Pass |
+
+**Verdict:** ✅ **PASS** - Ready for Testing (Updated per TEA Review)
+
+---
+
+## 📋 SUMMARY BY PRIORITY
+
+| Priority | Count | Description |
+|:--------:|:-----:|-------------|
+| **P0** | 12 | Critical - Happy path, Permission |
+| **P1** | 20 | Important - Reports, Average, UI, PERF, SEC |
+| **P2** | 15 | Edge cases - Boundary, A11Y, Concurrent |
+| **Total** | **47** | |
+
+---
+
+## 📝 CHANGE LOG
+
+| TC ID | Action | Thay đổi | Lý do | Sign-off |
+|-------|--------|----------|-------|----------|
+| TC_015 | MODIFY | Sửa format Expected Output | Minor: ký tự `\|` lỗi | @HuongTTT_2026-02-03 |
+| TC_034 | MODIFY | Clarify Expected Output | Minor: mơ hồ | @HuongTTT_2026-02-03 |
+| TC_043 | ADD | Thêm TC filter switch - no toast | Minor: Thiếu Case | @HuongTTT_2026-02-03 |
+| TC_044 | ADD | Thêm TC Performance - Chart load | TEA: Gap PERF | @HuongTTT_2026-02-03 |
+| TC_045 | ADD | Thêm TC Security - XSS Prevention | TEA: Gap SEC | @HuongTTT_2026-02-03 |
+| TC_046 | ADD | Thêm TC Concurrent - Dual-tab | TEA: Gap Concurrent | @HuongTTT_2026-02-03 |
+| TC_047 | ADD | Thêm TC Accessibility - Screen reader | TEA: Gap A11Y | @HuongTTT_2026-02-03 |

@@ -1,0 +1,9 @@
+user_id,user_profile,data_type,metric_name,calculation,value,expected_result,notes,srs_ref,period
+00000016-0000-0000-0000-000000000016,THA_diagnosed,kiem_soat,% trong ngưỡng mục tiêu,13/21*100%,61.9%,Kiểm soát tốt,50-70%,BR-006,2026-01-01~2026-01-31
+00000016-0000-0000-0000-000000000016,THA_diagnosed,arv,ARV tâm thu,Σ|ΔSYSᵢ|/(n-1)=54/20,2.7,Ổn định,<10,BR-006,2026-01-01~2026-01-31
+00000016-0000-0000-0000-000000000016,THA_diagnosed,mediff,ME diff tâm thu,127.9 - 127.1,+1,Cân bằng,-15~15 mmHg,BR-006,2026-01-01~2026-01-31
+00000016-0000-0000-0000-000000000016,THA_diagnosed,xu_huong_thang,Δ SYS vs tháng trước,128.0 - 139.8,-12,Giảm nhẹ,±5 mmHg,BR-005,2026-01-01~2026-01-31 vs 2025-12-01 00:00:00~2025-12-31 00:00:00
+00000016-0000-0000-0000-000000000016,THA_diagnosed,tuan_thu,Tỷ lệ tuân thủ lịch đo,7/31*100%,22.6%,Cần cải thiện,">=80% tốt, 50-80% khá",BR-005,2026-01-01~2026-01-31
+00000016-0000-0000-0000-000000000016,THA_diagnosed,sys_tb,SYS trung bình tháng,Σ(SYS)/21,128.0,Bình thường,mục tiêu <130,BR-005,2026-01-01~2026-01-31
+00000016-0000-0000-0000-000000000016,THA_diagnosed,sys_max,SYS cao nhất tháng,MAX(SYS),131/83,Bình thường,>160 nguy hiểm,BR-005,2026-01-01~2026-01-31
+00000016-0000-0000-0000-000000000016,THA_diagnosed,sys_min,SYS thấp nhất tháng,MIN(SYS),125/77,Cao,<90 cần chú ý,BR-005,2026-01-01~2026-01-31

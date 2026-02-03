@@ -1,0 +1,2 @@
+user_id,systolic_threshold_lower,systolic_threshold_upper,diastolic_threshold_lower,diastolic_threshold_upper,blood_pressure_systolic,blood_pressure_diastolic,weight_kg,height_cm
+00000003-0000-0000-0000-000000000003,120,130,70,80,145,92,78,172

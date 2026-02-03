@@ -1,0 +1,4 @@
+user_id,user_profile,data_type,metric_name,calculation,value,expected_result,notes,srs_ref,period
+00000007-0000-0000-0000-000000000007,ko_on_dinh,bp_load,% vượt 140/90,12/21*100%,57.1%,Gánh nặng lớn,>30%,BR-006,2026-01-19~2026-01-25
+00000007-0000-0000-0000-000000000007,ko_on_dinh,arv,ARV tâm thu,Σ|ΔSYSᵢ|/(n-1)=556/20,27.8,Bất ổn,>14,BR-006,2026-01-19~2026-01-25
+00000007-0000-0000-0000-000000000007,ko_on_dinh,mediff,ME diff tâm thu,114.3 - 142.9,-29,Tăng áp về tối,<-15 mmHg Risky Evening,BR-006,2026-01-19~2026-01-25

@@ -1,0 +1,82 @@
+TC_ID,Section,Module,Feature,TestCase_Name,Priority,Precondition,Test_Steps,Expected_Result,Test_Data,SRS_Ref,Status
+TC_HA_001,Kiem_Soat,Bao_Cao,Bieu_do_HA,Kiểm soát THA Tối ưu (>70%),High,"User U01 có tình trạng HA = 1-THA chẩn đoán, ngưỡng mục tiêu SYS 120-130 và DIA 70-80","1. Login với user U01
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra phần Nhận xét Kiểm soát HA","Hiển thị: ""Kiểm soát Tối ưu"" với tỷ lệ 90%",TD_Bao_Cao.md - U01,BR-006,Ready
+TC_HA_002,Kiem_Soat,Bao_Cao,Bieu_do_HA,Kiểm soát THA Tốt (50-70%),High,"User U02 có tình trạng HA = 1-THA chẩn đoán, ngưỡng mục tiêu SYS 120-135 và DIA 75-85","1. Login với user U02
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra phần Nhận xét Kiểm soát HA","Hiển thị: ""Kiểm soát Tốt"" với tỷ lệ 66.7%",TD_Bao_Cao.md - U02,BR-006,Ready
+TC_HA_003,Kiem_Soat,Bao_Cao,Bieu_do_HA,Kiểm soát THA Kém (25-50%),High,"User U03 có tình trạng HA = 1-THA chẩn đoán, ngưỡng mục tiêu SYS 120-130 và DIA 70-80","1. Login với user U03
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra phần Nhận xét Kiểm soát HA","Hiển thị: ""Kiểm soát Kém"" với tỷ lệ 33.3%",TD_Bao_Cao.md - U03,BR-006,Ready
+TC_HA_004,Kiem_Soat,Bao_Cao,Bieu_do_HA,Kiểm soát THA Không KS (<25%),High,"User U04 có tình trạng HA = 1-THA chẩn đoán, ngưỡng mục tiêu SYS 120-130 và DIA 70-80","1. Login với user U04
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra phần Nhận xét Kiểm soát HA","Hiển thị: ""Không được kiểm soát"" với tỷ lệ 9.5%",TD_Bao_Cao.md - U04,BR-006,Ready
+TC_HA_005,BP_Load,Bao_Cao,Bieu_do_HA,BP Load Gánh nặng (>30%),High,"User U05 có tình trạng HA = 2-Cao chưa chẩn đoán","1. Login với user U05
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra phần Nhận xét Nguy cơ THA","Hiển thị: ""Gánh nặng lớn lên hệ tim mạch"" với BP Load 90.5%",TD_Bao_Cao.md - U05,BR-006,Ready
+TC_HA_006,BP_Load,Bao_Cao,Bieu_do_HA,BP Load Bình thường (<15%),High,"User U06 có tình trạng HA = 3-Bình thường","1. Login với user U06
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra phần Nhận xét Nguy cơ THA","Hiển thị: ""Hệ tim mạch được bảo vệ tốt"" với BP Load 9.5%",TD_Bao_Cao.md - U06,BR-006,Ready
+TC_HA_007,BP_Load,Bao_Cao,Bieu_do_HA,BP Load Chớm cao (=15% Boundary),Medium,"User U09 có tình trạng HA = 6-Không rõ","1. Login với user U09
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra phần Nhận xét Nguy cơ THA","Hiển thị: ""Chớm cao - cần điều chỉnh lối sống"" với BP Load 15%",TD_Bao_Cao.md - U09,BR-006,Ready
+TC_HA_008,Hypotension,Bao_Cao,Bieu_do_HA,Hypotension Rủi ro (>30%),High,"User U08 có tình trạng HA = 5-HA thấp","1. Login với user U08
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra phần Nhận xét HA thấp","Hiển thị: ""Rủi ro tụt huyết áp"" với Hypotension Load 57.1%",TD_Bao_Cao.md - U08,BR-006,Ready
+TC_HA_009,Hypotension,Bao_Cao,Bieu_do_HA,Hypotension Ít khi (<15%),Medium,"User U12 có tình trạng HA = 5-HA thấp","1. Login với user U12
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra phần Nhận xét HA thấp","Hiển thị: ""Ít khi thấp"" với Hypotension Load 9.5%",TD_Bao_Cao.md - U12,BR-006,Ready
+TC_HA_010,Hypotension,Bao_Cao,Bieu_do_HA,Hypotension Thường xuyên (15-30%),Medium,"User U13 có tình trạng HA = 5-HA thấp","1. Login với user U13
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra phần Nhận xét HA thấp","Hiển thị: ""Thường xuyên thấp"" với Hypotension Load 33.3%",TD_Bao_Cao.md - U13,BR-006,Ready
+TC_HA_011,ARV,Bao_Cao,Bieu_do_HA,ARV Ổn định (<10),High,"User U01 có đủ BP data theo TD, >=20 records","1. Login với user U01
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra phần Nhận xét Độ ổn định HA","Hiển thị: ""Ổn định - Hệ mạch vận hành êm ái"" với ARV = 4-5",TD_Bao_Cao.md - U01,BR-006,Ready
+TC_HA_012,ARV,Bao_Cao,Bieu_do_HA,ARV Biến động (10-14),High,"User U02 có đủ BP data theo TD, >=20 records","1. Login với user U02
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra phần Nhận xét Độ ổn định HA","Hiển thị: ""Biến động - Mạch máu bắt đầu chịu áp lực"" với ARV = 12",TD_Bao_Cao.md - U02,BR-006,Ready
+TC_HA_013,ARV,Bao_Cao,Bieu_do_HA,ARV Bất ổn (>14),High,"User U07 có đủ BP data theo TD, >=20 records","1. Login với user U07
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra phần Nhận xét Độ ổn định HA","Hiển thị: ""Bất ổn - Nguy cơ cao tổn thương thành mạch"" với ARV = 18-19",TD_Bao_Cao.md - U07,BR-006,Ready
+TC_HA_014,MEdiff,Bao_Cao,Bieu_do_HA,MEdiff Morning Surge (>15),High,"User U02 có data sáng cao (145-155) và tối thấp (122-130)","1. Login với user U02
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra phần Nhận xét Nhịp sinh học HA","Hiển thị: ""Vọt áp buổi sáng (Morning Surge)"" với MEdiff = +21",TD_Bao_Cao.md - U02,BR-006,Ready
+TC_HA_015,MEdiff,Bao_Cao,Bieu_do_HA,MEdiff Cân bằng (-15~15),High,"User U01 có data sáng và tối cân bằng (~124-126)","1. Login với user U01
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra phần Nhận xét Nhịp sinh học HA","Hiển thị: ""Cân bằng (Balanced)"" với MEdiff = +6-7",TD_Bao_Cao.md - U01,BR-006,Ready
+TC_HA_016,MEdiff,Bao_Cao,Bieu_do_HA,MEdiff Risky Evening (<-15),High,"User U07 có data tối cao hơn sáng (tối ~135-145, sáng ~115-120)","1. Login với user U07
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra phần Nhận xét Nhịp sinh học HA","Hiển thị: ""Tăng áp về tối (Risky Evening)"" với MEdiff = -16~-20",TD_Bao_Cao.md - U07,BR-006,Ready
+TC_HA_017,Event,Bao_Cao,Bieu_do_HA,Tương quan Thuốc (1-8h sau uống),High,"User U02 có event uống thuốc lúc 06:30 và BP đo lúc 08:30-14:00","1. Login với user U02
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra phần Tương quan Sự kiện","Hiển thị: ""HA giảm sau uống thuốc 1-8h"" (từ 145→128 mmHg)",TD_Bao_Cao.md - U02,BR-006,Ready
+TC_HA_018,Event,Bao_Cao,Bieu_do_HA,Tương quan Stress (0-45p),High,"User U07 có event stress và BP đo trong 0-45p sau","1. Login với user U07
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra phần Tương quan Sự kiện","Hiển thị: ""HA tăng ngay sau stress trong 0-45 phút""",TD_Bao_Cao.md - U07,BR-006,Ready
+TC_HA_019,Event,Bao_Cao,Bieu_do_HA,Tương quan Caffeine (30p-2h),Medium,"User U07 có event uống caffeine và BP tăng trong 30p-2h","1. Login với user U07
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra phần Tương quan Sự kiện","Hiển thị: ""HA tăng trong 30p-2h sau caffeine""",TD_Bao_Cao.md - U07,BR-006,Ready
+TC_HA_020,Event,Bao_Cao,Bieu_do_HA,Tương quan Rượu (12-24h),Medium,"User U07 có event uống rượu và BP tăng ngày hôm sau","1. Login với user U07
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra phần Tương quan Sự kiện","Hiển thị: ""HA tăng 12-24h sau uống rượu (phản ứng dội ngược)""",TD_Bao_Cao.md - U07,BR-006,Ready
+TC_HA_021,Event,Bao_Cao,Bieu_do_HA,Tương quan Vận động (30p-2h),Medium,"User U06 có event vận động và BP giảm sau 30p-2h","1. Login với user U06
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra phần Tương quan Sự kiện","Hiển thị: ""HA giảm nhẹ 30p-2h sau vận động (hiệu ứng hạ áp sau tập)""",TD_Bao_Cao.md - U06,BR-006,Ready
+TC_HA_022,Event,Bao_Cao,Bieu_do_HA,Tương quan Ăn mặn (12-24h),Medium,"User U05 có event ăn mặn và BP tăng sáng hôm sau","1. Login với user U05
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra phần Tương quan Sự kiện","Hiển thị: ""HA tăng 12-24h sau ăn mặn (tác động giữ nước)""",TD_Bao_Cao.md - U05,BR-006,Ready
+TC_HA_023,Edge_Case,Bao_Cao,Bieu_do_HA,Empty State - Không có dữ liệu,High,"User U10 không có BP data nào trong kỳ báo cáo","1. Login với user U10
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra hiển thị báo cáo","Hiển thị: ""Không có đủ dữ liệu để tạo biểu đồ"" và các chỉ số hiển thị ""--""",TD_Bao_Cao.md - U10,BR-007,Ready
+TC_HA_024,Edge_Case,Bao_Cao,Bieu_do_HA,Ẩn nhận xét khi <2 lần đo/ngày,Medium,"User U11 có <2 lần đo mỗi ngày (chỉ 1 lần/ngày)","1. Login với user U11
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra phần Nhận xét chuyên sâu","Ẩn các nhận xét chuyên sâu (ARV, MEdiff). Hiển thị thông báo hướng dẫn",TD_Bao_Cao.md - U11,BR-006,Ready
+TC_HA_025,Edge_Case,Bao_Cao,Bieu_do_HA,High Frequency - 10 lần đo/ngày,Medium,"User U14 có 10 lần đo mỗi ngày","1. Login với user U14
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra biểu đồ và nhận xét","Biểu đồ hiển thị đầy đủ 10 điểm dữ liệu. Nhận xét được tính toán chính xác.",TD_Bao_Cao.md - U14,BR-006,Ready
+TC_HA_026,Xu_Huong,Bao_Cao,Bieu_do_HA,Xu hướng TĂNG vs tuần trước,High,"User U15 có SYS tuần này cao hơn tuần trước +5 mmHg","1. Login với user U15
+2. Vào Báo cáo > Báo cáo định kỳ > Tuần
+3. Kiểm tra phần Xu hướng HA","Hiển thị: ""So với tuần trước, HA có xu hướng TĂNG +5 mmHg""",TD_Bao_Cao.md - U15,BR-005,Ready
+TC_HA_027,Xu_Huong,Bao_Cao,Bieu_do_HA,Xu hướng GIẢM vs tháng trước,High,"User U16 có SYS tháng này thấp hơn tháng trước -12 mmHg","1. Login với user U16
+2. Vào Báo cáo > Báo cáo định kỳ > Tháng
+3. Kiểm tra phần Xu hướng HA","Hiển thị: ""So với tháng trước, HA có xu hướng GIẢM -12 mmHg (cải thiện tốt)""",TD_Bao_Cao.md - U16,BR-005,Ready
