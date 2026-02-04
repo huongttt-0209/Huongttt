@@ -1,0 +1,12 @@
+user_id,user_profile,data_type,metric_name,calculation,value,expected_result,notes,srs_ref,period
+00000004-0000-0000-0000-000000000004,hypotension,hypo_load,% dưới 90/60 tháng,44/59*100%,74.6%,Nguy cơ tụt HA cao,>30%,BR-006,2025-12-01~2025-12-31
+00000004-0000-0000-0000-000000000004,hypotension,sys_tb,SYS trung bình tháng,Σ SYS/59,84.8,Thấp mãn tính,,BR-006,2025-12-01~2025-12-31
+00000004-0000-0000-0000-000000000004,hypotension,sys_max,SYS cao nhất tháng,max(SYS),96,Bình thường thấp,,BR-006,2025-12-01~2025-12-31
+00000004-0000-0000-0000-000000000004,hypotension,sys_min,SYS thấp nhất tháng,min(SYS),70,Rất thấp,,BR-006,2025-12-01~2025-12-31
+00000004-0000-0000-0000-000000000004,hypotension,tuan_thu,Tỷ lệ tuân thủ đo,59/93*100%,63.4%,Tuân thủ khá,60-80%,BR-006,2025-12-01~2025-12-31
+00000004-0000-0000-0000-000000000004,hypotension,hypo_load,% dưới 90/60 tháng,24/54*100%,44.4%,Nguy cơ tụt HA,>30%,BR-006,2026-01-01~2026-01-31
+00000004-0000-0000-0000-000000000004,hypotension,sys_tb,SYS trung bình tháng,Σ SYS/54,86.5,Thấp mãn tính,,BR-006,2026-01-01~2026-01-31
+00000004-0000-0000-0000-000000000004,hypotension,sys_max,SYS cao nhất tháng,max(SYS),96,Bình thường thấp,,BR-006,2026-01-01~2026-01-31
+00000004-0000-0000-0000-000000000004,hypotension,sys_min,SYS thấp nhất tháng,min(SYS),65,Rất thấp nguy hiểm,,BR-006,2026-01-01~2026-01-31
+00000004-0000-0000-0000-000000000004,hypotension,tuan_thu,Tỷ lệ tuân thủ đo,54/93*100%,58.1%,Tuân thủ kém,<60%,BR-006,2026-01-01~2026-01-31
+00000004-0000-0000-0000-000000000004,hypotension,xu_huong,So sánh với tháng trước,44.4% vs 74.6%,-30.2%,Cải thiện,Xu hướng tích cực,BR-006,2026-01-01~2026-01-31

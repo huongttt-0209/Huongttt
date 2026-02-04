@@ -1,0 +1,12 @@
+user_id,user_profile,data_type,metric_name,calculation,value,expected_result,notes,srs_ref,period
+00000003-0000-0000-0000-000000000003,unstable,bp_load,% vượt 140/90 tháng,27/40*100%,67.5%,Gánh nặng lớn,>30%,BR-006,2025-12-01~2025-12-31
+00000003-0000-0000-0000-000000000003,unstable,sys_tb,SYS trung bình tháng,Σ SYS/40,146.6,Rất cao,,BR-006,2025-12-01~2025-12-31
+00000003-0000-0000-0000-000000000003,unstable,sys_max,SYS cao nhất tháng,max(SYS),170,Nguy hiểm,,BR-006,2025-12-01~2025-12-31
+00000003-0000-0000-0000-000000000003,unstable,sys_min,SYS thấp nhất tháng,min(SYS),108,Thấp bất thường,,BR-006,2025-12-01~2025-12-31
+00000003-0000-0000-0000-000000000003,unstable,tuan_thu,Tỷ lệ tuân thủ đo,40/93*100%,43.0%,Tuân thủ kém,<60%,BR-006,2025-12-01~2025-12-31
+00000003-0000-0000-0000-000000000003,unstable,bp_load,% vượt 140/90 tháng,43/61*100%,70.5%,Gánh nặng lớn,>30%,BR-006,2026-01-01~2026-01-31
+00000003-0000-0000-0000-000000000003,unstable,sys_tb,SYS trung bình tháng,Σ SYS/61,149.7,Rất cao,,BR-006,2026-01-01~2026-01-31
+00000003-0000-0000-0000-000000000003,unstable,sys_max,SYS cao nhất tháng,max(SYS),182,Rất nguy hiểm,,BR-006,2026-01-01~2026-01-31
+00000003-0000-0000-0000-000000000003,unstable,sys_min,SYS thấp nhất tháng,min(SYS),105,Rất thấp bất thường,,BR-006,2026-01-01~2026-01-31
+00000003-0000-0000-0000-000000000003,unstable,tuan_thu,Tỷ lệ tuân thủ đo,61/93*100%,65.6%,Tuân thủ khá,60-80%,BR-006,2026-01-01~2026-01-31
+00000003-0000-0000-0000-000000000003,unstable,xu_huong,So sánh với tháng trước,70.5% vs 67.5%,+3.0%,Không cải thiện,Cần can thiệp y tế,BR-006,2026-01-01~2026-01-31

@@ -1,8 +1,8 @@
 user_id,user_profile,data_type,metric_name,calculation,value,expected_result,notes,srs_ref,period
-00000013-0000-0000-0000-000000000013,ha_thap,hypotension_load,% dưới 90/60,7/21*100%,33.3%,Rủi ro tụt huyết áp,>30%,BR-006,2026-01-01~2026-01-31
-00000013-0000-0000-0000-000000000013,ha_thap,arv,ARV tâm thu,Σ|ΔSYSᵢ|/(n-1)=122/20,6.1,Ổn định,<10,BR-006,2026-01-01~2026-01-31
-00000013-0000-0000-0000-000000000013,ha_thap,mediff,ME diff tâm thu,87.3 - 93.3,-6,Cân bằng,-15~15 mmHg,BR-006,2026-01-01~2026-01-31
+00000013-0000-0000-0000-000000000013,ha_thap,hypotension_load,% dưới 90/60,4/21*100%,19.0%,Thường xuyên thấp,15-30%,BR-006,2026-01-01~2026-01-31
+00000013-0000-0000-0000-000000000013,ha_thap,arv,ARV tâm thu,Σ|ΔSYSᵢ|/(n-1)=98/20,4.9,Ổn định,<10,BR-006,2026-01-01~2026-01-31
+00000013-0000-0000-0000-000000000013,ha_thap,mediff,ME diff tâm thu,89.0 - 93.3,-4.3,Cân bằng,-15~15 mmHg,BR-006,2026-01-01~2026-01-31
 00000013-0000-0000-0000-000000000013,ha_thap,tuan_thu,Tỷ lệ tuân thủ lịch đo,7/31*100%,22.6%,Cần cải thiện,">=80% tốt, 50-80% khá",BR-005,2026-01-01~2026-01-31
-00000013-0000-0000-0000-000000000013,ha_thap,sys_tb,SYS trung bình tháng,Σ(SYS)/21,92.3,Bình thường,mục tiêu <130,BR-005,2026-01-01~2026-01-31
+00000013-0000-0000-0000-000000000013,ha_thap,sys_tb,SYS trung bình tháng,Σ(SYS)/21,92.0,Bình thường,mục tiêu <130,BR-005,2026-01-01~2026-01-31
 00000013-0000-0000-0000-000000000013,ha_thap,sys_max,SYS cao nhất tháng,MAX(SYS),98/65,Bình thường,>160 nguy hiểm,BR-005,2026-01-01~2026-01-31
-00000013-0000-0000-0000-000000000013,ha_thap,sys_min,SYS thấp nhất tháng,MIN(SYS),85/55,Thấp,<90 cần chú ý,BR-005,2026-01-01~2026-01-31
+00000013-0000-0000-0000-000000000013,ha_thap,sys_min,SYS thấp nhất tháng,MIN(SYS),87/57,Thấp,<90 cần chú ý,BR-005,2026-01-01~2026-01-31

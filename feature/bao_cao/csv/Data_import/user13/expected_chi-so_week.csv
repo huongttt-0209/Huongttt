@@ -1,4 +1,4 @@
 user_id,user_profile,data_type,metric_name,calculation,value,expected_result,notes,srs_ref,period
-00000013-0000-0000-0000-000000000013,ha_thap,hypotension_load,% dưới 90/60,7/21*100%,33.3%,Rủi ro tụt huyết áp,>30%,BR-006,2026-01-19~2026-01-25
-00000013-0000-0000-0000-000000000013,ha_thap,arv,ARV tâm thu,Σ|ΔSYSᵢ|/(n-1)=122/20,6.1,Ổn định,<10,BR-006,2026-01-19~2026-01-25
-00000013-0000-0000-0000-000000000013,ha_thap,mediff,ME diff tâm thu,87.3 - 93.3,-6,Cân bằng,-15~15 mmHg,BR-006,2026-01-19~2026-01-25
+00000013-0000-0000-0000-000000000013,ha_thap,hypotension_load,% dưới 90/60,4/21*100%,19.0%,Thường xuyên thấp,15-30%,BR-006,2026-01-19~2026-01-25
+00000013-0000-0000-0000-000000000013,ha_thap,arv,ARV tâm thu,Σ|ΔSYSᵢ|/(n-1)=98/20,4.9,Ổn định,<10,BR-006,2026-01-19~2026-01-25
+00000013-0000-0000-0000-000000000013,ha_thap,mediff,ME diff tâm thu,89.0 - 93.3,-4.3,Cân bằng,-15~15 mmHg,BR-006,2026-01-19~2026-01-25
