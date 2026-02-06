@@ -1,4 +1,0 @@
-user_id,user_profile,data_type,metric_name,calculation,value,expected_result,notes,srs_ref,period
-00000009-0000-0000-0000-000000000009,khong_ro,bp_load,% vượt 140/90,3/20*100%,15.0%,Chớm cao,15-30%,BR-006,2026-01-19~2026-01-25
-00000009-0000-0000-0000-000000000009,khong_ro,arv,ARV tâm thu,Σ|ΔSYSᵢ|/(n-1)=159/19,8.4,Ổn định,<10,BR-006,2026-01-19~2026-01-25
-00000009-0000-0000-0000-000000000009,khong_ro,mediff,ME diff tâm thu,140.0 - 128.7,+11,Cân bằng,-15~15 mmHg,BR-006,2026-01-19~2026-01-25

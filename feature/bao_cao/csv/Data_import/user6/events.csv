@@ -1,2 +1,0 @@
-id,user_id,event_type,event_time,description,bp_measurement_id,bp_time,bp_systolic,bp_diastolic,interval_hours,is_match
-3,00000006-0000-0000-0000-000000000006,van_dong,2026-01-21 07:00:00,Chạy bộ,113,2026-01-21 07:45:00,118,72,0.75,true

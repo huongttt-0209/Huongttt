@@ -1,28 +1,28 @@
 user_id,user_profile,data_type,metric_name,calculation,value,expected_result,notes,srs_ref,period
 00000001-0000-0000-0000-000000000001,THA_diagnosed,kiem_soat,% trong ngưỡng mục tiêu,20/21*100%,95.2%,Kiểm soát tối ưu,>70%,BR-006,2025-12-01~2025-12-07
 00000001-0000-0000-0000-000000000001,THA_diagnosed,arv,ARV tâm thu,Σ|ΔSYSᵢ|/20,2.5,Ổn định,<10,BR-006,2025-12-01~2025-12-07
-00000001-0000-0000-0000-000000000001,THA_diagnosed,mediff,ME diff tâm thu,TB_sáng - TB_tối,+1,Cân bằng,-15~15 mmHg,BR-006,2025-12-01~2025-12-07
+00000001-0000-0000-0000-000000000001,THA_diagnosed,mediff,ME diff tâm thu,TB_sáng - TB_tối,-2,Cân bằng,-15~15 mmHg,BR-006,2025-12-01~2025-12-07
 00000001-0000-0000-0000-000000000001,THA_diagnosed,kiem_soat,% trong ngưỡng mục tiêu,13/19*100%,68.4%,Kiểm soát tốt,50-70%,BR-006,2025-12-08~2025-12-14
 00000001-0000-0000-0000-000000000001,THA_diagnosed,arv,ARV tâm thu,Σ|ΔSYSᵢ|/18,10.1,Biến động,10-14,BR-006,2025-12-08~2025-12-14
-00000001-0000-0000-0000-000000000001,THA_diagnosed,mediff,ME diff tâm thu,TB_sáng - TB_tối,+15,Cân bằng,-15~15 mmHg,BR-006,2025-12-08~2025-12-14
+00000001-0000-0000-0000-000000000001,THA_diagnosed,mediff,ME diff tâm thu,TB_sáng - TB_tối,-4,Cân bằng,-15~15 mmHg,BR-006,2025-12-08~2025-12-14
 00000001-0000-0000-0000-000000000001,THA_diagnosed,kiem_soat,% trong ngưỡng mục tiêu,4/13*100%,30.8%,Kiểm soát kém,25-50%,BR-006,2025-12-15~2025-12-21
 00000001-0000-0000-0000-000000000001,THA_diagnosed,arv,ARV tâm thu,Σ|ΔSYSᵢ|/12,7.1,Ổn định,<10,BR-006,2025-12-15~2025-12-21
-00000001-0000-0000-0000-000000000001,THA_diagnosed,mediff,ME diff tâm thu,TB_sáng - TB_tối,+5,Cân bằng,-15~15 mmHg,BR-006,2025-12-15~2025-12-21
+00000001-0000-0000-0000-000000000001,THA_diagnosed,mediff,ME diff tâm thu,TB_sáng - TB_tối,+1,Cân bằng,-15~15 mmHg,BR-006,2025-12-15~2025-12-21
 00000001-0000-0000-0000-000000000001,THA_diagnosed,kiem_soat,% trong ngưỡng mục tiêu,3/24*100%,12.5%,Không kiểm soát,<25%,BR-006,2025-12-22~2025-12-28
 00000001-0000-0000-0000-000000000001,THA_diagnosed,arv,ARV tâm thu,Σ|ΔSYSᵢ|/23,13.2,Biến động,10-14,BR-006,2025-12-22~2025-12-28
-00000001-0000-0000-0000-000000000001,THA_diagnosed,mediff,ME diff tâm thu,TB_sáng - TB_tối,-10,Cân bằng,-15~15 mmHg,BR-006,2025-12-22~2025-12-28
+00000001-0000-0000-0000-000000000001,THA_diagnosed,mediff,ME diff tâm thu,TB_sáng - TB_tối,+16,Vọt áp buổi sáng,>15 mmHg,BR-006,2025-12-22~2025-12-28
 00000001-0000-0000-0000-000000000001,THA_diagnosed,kiem_soat,% trong ngưỡng mục tiêu,0/5*100%,0.0%,Không kiểm soát,<25%,BR-006,2025-12-29~2026-01-04
 00000001-0000-0000-0000-000000000001,THA_diagnosed,arv,ARV tâm thu,Σ|ΔSYSᵢ|/4,13.2,Biến động,10-14,BR-006,2025-12-29~2026-01-04
-00000001-0000-0000-0000-000000000001,THA_diagnosed,mediff,ME diff tâm thu,TB_sáng - TB_tối,+10,Cân bằng,-15~15 mmHg,BR-006,2025-12-29~2026-01-04
+00000001-0000-0000-0000-000000000001,THA_diagnosed,mediff,ME diff tâm thu,TB_sáng - TB_tối,+5,Cân bằng,-15~15 mmHg,BR-006,2025-12-29~2026-01-04
 00000001-0000-0000-0000-000000000001,THA_diagnosed,kiem_soat,% trong ngưỡng mục tiêu,1/10*100%,10.0%,Không kiểm soát,<25%,BR-006,2026-01-05~2026-01-11
 00000001-0000-0000-0000-000000000001,THA_diagnosed,arv,ARV tâm thu,Σ|ΔSYSᵢ|/9,14.4,Bất ổn,>14,BR-006,2026-01-05~2026-01-11
-00000001-0000-0000-0000-000000000001,THA_diagnosed,mediff,ME diff tâm thu,TB_sáng - TB_tối,+11,Cân bằng,-15~15 mmHg,BR-006,2026-01-05~2026-01-11
+00000001-0000-0000-0000-000000000001,THA_diagnosed,mediff,ME diff tâm thu,TB_sáng - TB_tối,+7,Cân bằng,-15~15 mmHg,BR-006,2026-01-05~2026-01-11
 00000001-0000-0000-0000-000000000001,THA_diagnosed,kiem_soat,% trong ngưỡng mục tiêu,19/25*100%,76.0%,Kiểm soát tối ưu,>70%,BR-006,2026-01-12~2026-01-18
 00000001-0000-0000-0000-000000000001,THA_diagnosed,arv,ARV tâm thu,Σ|ΔSYSᵢ|/24,3.7,Ổn định,<10,BR-006,2026-01-12~2026-01-18
-00000001-0000-0000-0000-000000000001,THA_diagnosed,mediff,ME diff tâm thu,TB_sáng - TB_tối,+3,Cân bằng,-15~15 mmHg,BR-006,2026-01-12~2026-01-18
+00000001-0000-0000-0000-000000000001,THA_diagnosed,mediff,ME diff tâm thu,TB_sáng - TB_tối,-2,Cân bằng,-15~15 mmHg,BR-006,2026-01-12~2026-01-18
 00000001-0000-0000-0000-000000000001,THA_diagnosed,kiem_soat,% trong ngưỡng mục tiêu,20/21*100%,95.2%,Kiểm soát tối ưu,>70%,BR-006,2026-01-19~2026-01-25
 00000001-0000-0000-0000-000000000001,THA_diagnosed,arv,ARV tâm thu,Σ|ΔSYSᵢ|/20,2.5,Ổn định,<10,BR-006,2026-01-19~2026-01-25
-00000001-0000-0000-0000-000000000001,THA_diagnosed,mediff,ME diff tâm thu,TB_sáng - TB_tối,+1,Cân bằng,-15~15 mmHg,BR-006,2026-01-19~2026-01-25
+00000001-0000-0000-0000-000000000001,THA_diagnosed,mediff,ME diff tâm thu,TB_sáng - TB_tối,-1,Cân bằng,-15~15 mmHg,BR-006,2026-01-19~2026-01-25
 00000001-0000-0000-0000-000000000001,THA_diagnosed,kiem_soat,% trong ngưỡng mục tiêu,18/18*100%,100.0%,Kiểm soát tối ưu,>70%,BR-006,2026-01-26~2026-01-31
 00000001-0000-0000-0000-000000000001,THA_diagnosed,arv,ARV tâm thu,Σ|ΔSYSᵢ|/17,2.0,Ổn định,<10,BR-006,2026-01-26~2026-01-31
-00000001-0000-0000-0000-000000000001,THA_diagnosed,mediff,ME diff tâm thu,TB_sáng - TB_tối,0,Cân bằng,-15~15 mmHg,BR-006,2026-01-26~2026-01-31
+00000001-0000-0000-0000-000000000001,THA_diagnosed,mediff,ME diff tâm thu,TB_sáng - TB_tối,-2,Cân bằng,-15~15 mmHg,BR-006,2026-01-26~2026-01-31
